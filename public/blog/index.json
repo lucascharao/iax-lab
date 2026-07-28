@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-07-28T19:02:38.857Z",
+  "updatedAt": "2026-07-28T21:57:45.275Z",
   "posts": [
+    {
+      "slug": "inteligencia-artificial-comeca-a-fazer-descobertas-e-redefine-o-futuro-d",
+      "title": "Inteligência Artificial começa a fazer descobertas e redefine o futuro da ciência",
+      "excerpt": "A IA avança para além de tarefas operacionais e passa a gerar descobertas científicas, transformando permanentemente o ritmo e os métodos da pesquisa.",
+      "cover": "/blog/covers/inteligencia-artificial-comeca-a-fazer-descobertas-e-redefine-o-futuro-d.jpg",
+      "publishedAt": "2026-07-28T21:57:45.275Z",
+      "sourceUrl": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPc25BOVlRV1UtbTJnY3lFQ1RNZnAzTVRYeU1oSkJvQ2UxN2o2Q24waVlBN2NOM2NrLWlnU2VGVTZ2RVA0bnd3UjFQMlNnUHhHNFZqanU0XzB2NGYxSk5hSXo3MmxhN2VZRUc1YUVkT1A0RTZoZl9TckJ2MXhxLUZUMHlvZll2VVVRVjVLZWlpV01Qbzh6QzdMTTMxaF83QjBiY2NHNEFRaDdvVjNuamZBLUxLLUZVWldoUjU1NjFPVVR2VzFUc3NIWDAtbVA2VFNHSmJqeThHLVhfaWFhenFQWnZQZl9TeTI5OWRlXzFjUWJWRTd2?oc=5",
+      "tags": [
+        "IA",
+        "Ciência",
+        "Inovação"
+      ]
+    },
     {
       "slug": "clicksign-lanca-tecnologia-para-gerenciar-contratos-por-conversa-com-ia",
       "title": "Clicksign lança tecnologia para gerenciar contratos por conversa com IA",
@@ -17,9 +30,11 @@
     }
   ],
   "publishedFingerprints": [
+    "402fcde15b04c08dbf73f3d9",
     "332b465244dda6c99bbf264d"
   ],
   "publishedSourceUrls": [
+    "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPc25BOVlRV1UtbTJnY3lFQ1RNZnAzTVRYeU1oSkJvQ2UxN2o2Q24waVlBN2NOM2NrLWlnU2VGVTZ2RVA0bnd3UjFQMlNnUHhHNFZqanU0XzB2NGYxSk5hSXo3MmxhN2VZRUc1YUVkT1A0RTZoZl9TckJ2MXhxLUZUMHlvZll2VVVRVjVLZWlpV01Qbzh6QzdMTTMxaF83QjBiY2NHNEFRaDdvVjNuamZBLUxLLUZVWldoUjU1NjFPVVR2VzFUc3NIWDAtbVA2VFNHSmJqeThHLVhfaWFhenFQWnZQZl9TeTI5OWRlXzFjUWJWRTd2?oc=5",
     "https://news.google.com/rss/articles/CBMivwFBVV95cUxNc3RmMHRsbTdZNlRIbmZPUW9uYTZtR1ZUMWZzc2VZMVFIQ3NMbEdVZWhtdkdURHhiWUVFaHlnclF0UVl1TkpyUVkzVmgyMldIWi1sVFFxWjdlOTBPZTlZR2s2RUpUS21icFhFNE9QRlpVSHNQUWJHbGNzOTkyRkw4WTRXVmdkTXF3UDdIdDBhMjZDWm5pdFpFRkRtdVpxcEsyVkltR0xLcTB1dmtnTE1ZX1I5WEt2U0FRQzVnazJyMA?oc=5"
   ]
 }
