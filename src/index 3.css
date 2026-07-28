@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-void: #04070a;
+  --color-panel: #0a1118;
+  --color-line: #14212b;
+  --color-neon: #22e58c;
+  --color-neon-dim: #16a06a;
+  --color-ice: #e8f3ee;
+  --color-mist: #8ba396;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+/* smooth scrolling fica por conta do Lenis (não usar scroll-behavior junto) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-ice);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-neon);
+  color: var(--color-void);
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, #22e58c 0%, #7df5c0 50%, #22e58c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glow {
+  text-shadow: 0 0 24px rgba(34, 229, 140, 0.45);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(34, 229, 140, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 229, 140, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 75%);
+}
+
+.border-glow {
+  box-shadow: 0 0 0 1px rgba(34, 229, 140, 0.35), 0 0 32px rgba(34, 229, 140, 0.18);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neon-dim);
+}

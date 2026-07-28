@@ -1,0 +1,23 @@
+:80 {
+	root * /srv
+	encode zstd gzip
+
+	# assets com hash: cache imutável de 1 ano
+	@assets path /assets/*
+	header @assets Cache-Control "public, max-age=31536000, immutable"
+
+	# HTML: sempre revalidar (evita apontar pra chunks de deploys antigos)
+	@html path / /index.html
+	header @html Cache-Control "no-cache, must-revalidate"
+
+	# Blog IA: JSON e capas precisam atualizar após automação 2x/dia
+	@blogjson path /blog/*.json /blog/posts/*
+	header @blogjson Cache-Control "public, max-age=300, must-revalidate"
+
+	# sinais de confiança / segurança
+	header Strict-Transport-Security "max-age=31536000; includeSubDomains"
+	header X-Content-Type-Options "nosniff"
+
+	try_files {path} /index.html
+	file_server
+}
