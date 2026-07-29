@@ -1,6 +1,21 @@
 {
-  "updatedAt": "2026-07-29T12:32:24.575Z",
+  "updatedAt": "2026-07-29T21:54:15.756Z",
   "posts": [
+    {
+      "slug": "uem-abre-400-vagas-em-especializacao-a-distancia-em-inteligencia-artific",
+      "title": "UEM Abre 400 Vagas em Especialização a Distância em Inteligência Artificial",
+      "excerpt": "A UEM disponibiliza 400 vagas para o curso de especialização em Inteligência Artificial na modalidade EaD, oferecendo formação acessível para profissionais e empresas.",
+      "cover": "/blog/covers/uem-abre-400-vagas-em-especializacao-a-distancia-em-inteligencia-artific.jpg",
+      "publishedAt": "2026-07-29T21:54:15.756Z",
+      "sourceUrl": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPV0lzS19EU3ZxcVV2RWFXTUZJUmdTMzJqRlYwMzZ5bjB5aUVBV1NFbjVFTjM3Zm5IdmpUUFNsMkxBaTJrVlAzaFMwNklmRHppd2pmN1JXdW10UzQ4dHlfdXh4cTAyUjRZWlJ6WS1yWU9jRW15ak51Si1BUzZzTVpOaXNCaURTZXp3SnVQWXpZYzB2NGNiV0o5ZVA4SC1jTFFYN0FEd1k3QQ?oc=5",
+      "tags": [
+        "IA",
+        "Educação",
+        "Especialização",
+        "UEM",
+        "EaD"
+      ]
+    },
     {
       "slug": "avanco-da-ia-aumenta-alertas-sobre-desinformacao-nas-eleicoes",
       "title": "Avanço da IA aumenta alertas sobre desinformação nas eleições",
@@ -43,11 +58,13 @@
     }
   ],
   "publishedFingerprints": [
+    "b242eaf824119919bc2e417e",
     "12a4d8dcc597a3f0ce9a0f4f",
     "402fcde15b04c08dbf73f3d9",
     "332b465244dda6c99bbf264d"
   ],
   "publishedSourceUrls": [
+    "https://news.google.com/rss/articles/CBMipwFBVV95cUxPV0lzS19EU3ZxcVV2RWFXTUZJUmdTMzJqRlYwMzZ5bjB5aUVBV1NFbjVFTjM3Zm5IdmpUUFNsMkxBaTJrVlAzaFMwNklmRHppd2pmN1JXdW10UzQ4dHlfdXh4cTAyUjRZWlJ6WS1yWU9jRW15ak51Si1BUzZzTVpOaXNCaURTZXp3SnVQWXpZYzB2NGNiV0o5ZVA4SC1jTFFYN0FEd1k3QQ?oc=5",
     "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQTDlPUU1WcWZZaFk2ZEdNb3pITm16Wm5jT3h6TmVEUllXSWwyN29Ja3F5elBsRXZyelFhOW8tVjdUUFBONElZNTVpay1maWJBQV9TUFhHdWFlNEU2QzNqR3J1dGF1eVAzX2xXSkg1LUx6SWNDOXJLMFBzMzU2enkyYkVvNWNqeW1NTnlvb3Z1NzI5RGFzS0h2ZDcxS1FuU1Q4VWNDaV9GcnZMejJTR2swLWtsal9nUGMwcXVSN0loSUluWldmUF84OGQ4TkpEY0Y1YXdxRDlCY2drd284N0NpX3d3UFJDMTR5?oc=5",
     "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPc25BOVlRV1UtbTJnY3lFQ1RNZnAzTVRYeU1oSkJvQ2UxN2o2Q24waVlBN2NOM2NrLWlnU2VGVTZ2RVA0bnd3UjFQMlNnUHhHNFZqanU0XzB2NGYxSk5hSXo3MmxhN2VZRUc1YUVkT1A0RTZoZl9TckJ2MXhxLUZUMHlvZll2VVVRVjVLZWlpV01Qbzh6QzdMTTMxaF83QjBiY2NHNEFRaDdvVjNuamZBLUxLLUZVWldoUjU1NjFPVVR2VzFUc3NIWDAtbVA2VFNHSmJqeThHLVhfaWFhenFQWnZQZl9TeTI5OWRlXzFjUWJWRTd2?oc=5",
     "https://news.google.com/rss/articles/CBMivwFBVV95cUxNc3RmMHRsbTdZNlRIbmZPUW9uYTZtR1ZUMWZzc2VZMVFIQ3NMbEdVZWhtdkdURHhiWUVFaHlnclF0UVl1TkpyUVkzVmgyMldIWi1sVFFxWjdlOTBPZTlZR2s2RUpUS21icFhFNE9QRlpVSHNQUWJHbGNzOTkyRkw4WTRXVmdkTXF3UDdIdDBhMjZDWm5pdFpFRkRtdVpxcEsyVkltR0xLcTB1dmtnTE1ZX1I5WEt2U0FRQzVnazJyMA?oc=5"
