@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-07-30T12:13:13.925Z",
+  "updatedAt": "2026-07-30T22:01:17.872Z",
   "posts": [
+    {
+      "slug": "plataforma-confluent-da-ibm-oferece-dados-qualificados-para-gestao-e-int",
+      "title": "Plataforma Confluent da IBM Oferece Dados Qualificados para Gestão e Inteligência Artificial",
+      "excerpt": "Nova solução da IBM com tecnologia Confluent entrega dados confiáveis para apoiar decisões de gestão e projetos de IA nas empresas.",
+      "cover": "/blog/covers/plataforma-confluent-da-ibm-oferece-dados-qualificados-para-gestao-e-int.jpg",
+      "publishedAt": "2026-07-30T22:01:17.872Z",
+      "sourceUrl": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPRW8td01HVFh2ZFNvOHdrTnZXQ0N6WGZDdlFJVnBsMTNsUU5nakN3ZkRiMmx2SlJKcVl1aENBX0tEcGhrd3JhUERmUW1kQmFnc1NJc3ozcEJWQkM4NHhvZXQtdUJLbmw1S1NjSnRmUW9tWUxrcUc2aXU4UXRRS1d2SGhYUDh1T0ljWVY1WUFHYW9vbzFGMlkxZnl5eUFUNGRXVlhLQUo1MHlmUGpkV1ZQOUg2bkE0b3psS2dZcldBZkNrVVVKYlM2TlFCcw?oc=5",
+      "tags": [
+        "IA",
+        "Dados",
+        "IBM",
+        "Confluent"
+      ]
+    },
     {
       "slug": "inteligencia-artificial-e-tecnologia-impulsionam-o-segundo-dia-da-superb",
       "title": "Inteligência Artificial e Tecnologia Impulsionam o Segundo Dia da Superbahia",
@@ -72,6 +86,7 @@
     }
   ],
   "publishedFingerprints": [
+    "31c36769082225b51a75ace5",
     "fd15d075779cda3f02d15553",
     "b242eaf824119919bc2e417e",
     "12a4d8dcc597a3f0ce9a0f4f",
@@ -79,6 +94,7 @@
     "332b465244dda6c99bbf264d"
   ],
   "publishedSourceUrls": [
+    "https://news.google.com/rss/articles/CBMiywFBVV95cUxPRW8td01HVFh2ZFNvOHdrTnZXQ0N6WGZDdlFJVnBsMTNsUU5nakN3ZkRiMmx2SlJKcVl1aENBX0tEcGhrd3JhUERmUW1kQmFnc1NJc3ozcEJWQkM4NHhvZXQtdUJLbmw1S1NjSnRmUW9tWUxrcUc2aXU4UXRRS1d2SGhYUDh1T0ljWVY1WUFHYW9vbzFGMlkxZnl5eUFUNGRXVlhLQUo1MHlmUGpkV1ZQOUg2bkE0b3psS2dZcldBZkNrVVVKYlM2TlFCcw?oc=5",
     "https://news.google.com/rss/articles/CBMivgFBVV95cUxQY0NuOTI2Z2NSWVFES0tWUFRrNlFvampaZ3BYcG0zN1dOcFR3T2FHR0thcmVLVHR3WFQtd0RJdWcxRkhoYkdvRHptMnhWMFhsaEtGTHNtTXFRUlh6ZVUxQnZxbFQxLW5nU0U5ZFhiWjgwal9SR0U4Tld6cmd3cUNCRzhINDl2M0VaYTR4eGZPbnM2Z21EdUgxVUFIclA4WXZ3TEpSRHktWDFZVlJYc1l4QlBiQzZ5a1VBVG1TQl9R?oc=5",
     "https://news.google.com/rss/articles/CBMipwFBVV95cUxPV0lzS19EU3ZxcVV2RWFXTUZJUmdTMzJqRlYwMzZ5bjB5aUVBV1NFbjVFTjM3Zm5IdmpUUFNsMkxBaTJrVlAzaFMwNklmRHppd2pmN1JXdW10UzQ4dHlfdXh4cTAyUjRZWlJ6WS1yWU9jRW15ak51Si1BUzZzTVpOaXNCaURTZXp3SnVQWXpZYzB2NGNiV0o5ZVA4SC1jTFFYN0FEd1k3QQ?oc=5",
     "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQTDlPUU1WcWZZaFk2ZEdNb3pITm16Wm5jT3h6TmVEUllXSWwyN29Ja3F5elBsRXZyelFhOW8tVjdUUFBONElZNTVpay1maWJBQV9TUFhHdWFlNEU2QzNqR3J1dGF1eVAzX2xXSkg1LUx6SWNDOXJLMFBzMzU2enkyYkVvNWNqeW1NTnlvb3Z1NzI5RGFzS0h2ZDcxS1FuU1Q4VWNDaV9GcnZMejJTR2swLWtsal9nUGMwcXVSN0loSUluWldmUF84OGQ4TkpEY0Y1YXdxRDlCY2drd284N0NpX3d3UFJDMTR5?oc=5",
