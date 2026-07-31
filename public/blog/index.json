@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-07-30T22:01:17.872Z",
+  "updatedAt": "2026-07-31T12:30:29.781Z",
   "posts": [
+    {
+      "slug": "o-que-muda-na-lideranca-na-era-da-inteligencia-artificial",
+      "title": "O que muda na liderança na era da inteligência artificial",
+      "excerpt": "Descubra como a inteligência artificial está transformando o papel dos líderes empresariais e quais competências se tornam essenciais para o sucesso.",
+      "cover": "/blog/covers/o-que-muda-na-lideranca-na-era-da-inteligencia-artificial.jpg",
+      "publishedAt": "2026-07-31T12:30:29.781Z",
+      "sourceUrl": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNM2d4NDg4YW5yVHJUR3czdU1BaHhmSHZiT2kta3dzV2RnamViNUc5anNEY3E1N0Y2azgxNklpUi1CQ01hYTlPeVZQdlRxSERhWTFLNXg1S0hRMU5peVJGZUowYXFKX01UaERTZXJoRS15UEtDWEEtZFJBalJsYnpDTEN0YUFlOVAyMXZsZzlubXFNTGNGRkVxdWpTYWFXaHZS?oc=5",
+      "tags": [
+        "IA",
+        "Liderança",
+        "Negócios"
+      ]
+    },
     {
       "slug": "plataforma-confluent-da-ibm-oferece-dados-qualificados-para-gestao-e-int",
       "title": "Plataforma Confluent da IBM Oferece Dados Qualificados para Gestão e Inteligência Artificial",
@@ -86,6 +99,7 @@
     }
   ],
   "publishedFingerprints": [
+    "d1f0ad7ee5cabb40ca29580f",
     "31c36769082225b51a75ace5",
     "fd15d075779cda3f02d15553",
     "b242eaf824119919bc2e417e",
@@ -94,6 +108,7 @@
     "332b465244dda6c99bbf264d"
   ],
   "publishedSourceUrls": [
+    "https://news.google.com/rss/articles/CBMioAFBVV95cUxNM2d4NDg4YW5yVHJUR3czdU1BaHhmSHZiT2kta3dzV2RnamViNUc5anNEY3E1N0Y2azgxNklpUi1CQ01hYTlPeVZQdlRxSERhWTFLNXg1S0hRMU5peVJGZUowYXFKX01UaERTZXJoRS15UEtDWEEtZFJBalJsYnpDTEN0YUFlOVAyMXZsZzlubXFNTGNGRkVxdWpTYWFXaHZS?oc=5",
     "https://news.google.com/rss/articles/CBMiywFBVV95cUxPRW8td01HVFh2ZFNvOHdrTnZXQ0N6WGZDdlFJVnBsMTNsUU5nakN3ZkRiMmx2SlJKcVl1aENBX0tEcGhrd3JhUERmUW1kQmFnc1NJc3ozcEJWQkM4NHhvZXQtdUJLbmw1S1NjSnRmUW9tWUxrcUc2aXU4UXRRS1d2SGhYUDh1T0ljWVY1WUFHYW9vbzFGMlkxZnl5eUFUNGRXVlhLQUo1MHlmUGpkV1ZQOUg2bkE0b3psS2dZcldBZkNrVVVKYlM2TlFCcw?oc=5",
     "https://news.google.com/rss/articles/CBMivgFBVV95cUxQY0NuOTI2Z2NSWVFES0tWUFRrNlFvampaZ3BYcG0zN1dOcFR3T2FHR0thcmVLVHR3WFQtd0RJdWcxRkhoYkdvRHptMnhWMFhsaEtGTHNtTXFRUlh6ZVUxQnZxbFQxLW5nU0U5ZFhiWjgwal9SR0U4Tld6cmd3cUNCRzhINDl2M0VaYTR4eGZPbnM2Z21EdUgxVUFIclA4WXZ3TEpSRHktWDFZVlJYc1l4QlBiQzZ5a1VBVG1TQl9R?oc=5",
     "https://news.google.com/rss/articles/CBMipwFBVV95cUxPV0lzS19EU3ZxcVV2RWFXTUZJUmdTMzJqRlYwMzZ5bjB5aUVBV1NFbjVFTjM3Zm5IdmpUUFNsMkxBaTJrVlAzaFMwNklmRHppd2pmN1JXdW10UzQ4dHlfdXh4cTAyUjRZWlJ6WS1yWU9jRW15ak51Si1BUzZzTVpOaXNCaURTZXp3SnVQWXpZYzB2NGNiV0o5ZVA4SC1jTFFYN0FEd1k3QQ?oc=5",
