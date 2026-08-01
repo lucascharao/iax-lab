@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-08-01T11:44:50.578Z",
+  "updatedAt": "2026-08-01T21:48:03.864Z",
   "posts": [
+    {
+      "slug": "policia-civil-do-acre-promove-palestra-sobre-inteligencia-artificial-em-",
+      "title": "Polícia Civil do Acre promove palestra sobre inteligência artificial em investigações",
+      "excerpt": "Evento discute aplicações de IA na investigação criminal e reforça a importância da tecnologia no setor público.",
+      "cover": "/blog/covers/policia-civil-do-acre-promove-palestra-sobre-inteligencia-artificial-em-.jpg",
+      "publishedAt": "2026-08-01T21:48:03.864Z",
+      "sourceUrl": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOTnRuZVZ1QlpYclFsT3ZiVjlMQ1BISUxNTHc0LTRZaEFOb2o1d1doZzY4WFhQcHlwVVlIVTNrcmw1RkxVUnlScmJhc19ySzM5TWFkTXlWSXhad2tpc2NrMWgtc3diWXJQQUpNT2lZOXVQbFZGU0xjNG5VOGhLRlh3UjhCdjk4MjRaY1lCX25wb19IZDZmYUZOUVNteUQ5aUY5cXZuN2JaWjVmX2VzQWpESU5qZTlIQ2J1MkJSUkJyOFpZSzlv?oc=5",
+      "tags": [
+        "IA",
+        "Segurança Pública",
+        "Investigação Criminal"
+      ]
+    },
     {
       "slug": "oab-varginha-lanca-curso-de-inteligencia-artificial-para-advogados",
       "title": "OAB Varginha lança curso de inteligência artificial para advogados",
@@ -127,6 +140,7 @@
     }
   ],
   "publishedFingerprints": [
+    "41b31dd810dff09cdff9ad96",
     "c3a94f913228430e3f0ed8d1",
     "3a3f49a3b0da3bbe901e10af",
     "d1f0ad7ee5cabb40ca29580f",
@@ -138,6 +152,7 @@
     "332b465244dda6c99bbf264d"
   ],
   "publishedSourceUrls": [
+    "https://news.google.com/rss/articles/CBMixAFBVV95cUxOTnRuZVZ1QlpYclFsT3ZiVjlMQ1BISUxNTHc0LTRZaEFOb2o1d1doZzY4WFhQcHlwVVlIVTNrcmw1RkxVUnlScmJhc19ySzM5TWFkTXlWSXhad2tpc2NrMWgtc3diWXJQQUpNT2lZOXVQbFZGU0xjNG5VOGhLRlh3UjhCdjk4MjRaY1lCX25wb19IZDZmYUZOUVNteUQ5aUY5cXZuN2JaWjVmX2VzQWpESU5qZTlIQ2J1MkJSUkJyOFpZSzlv?oc=5",
     "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQRkZuYzE2Qjd6dzBMbldMdGo5VGlMWWlvcS04ZE52Mk41a1RFWnlydmxIb1BoV0VMeXRrN0t3Qk1Pb09Mano1dkR6d3ZHSDBsNXJrdXJ3RDFBMkdLbnVjTFNER081TGYwRWVGdVJpY3dQbHpkTHZUd1hHRDhwWmNRYlVQY2VienF5R2VEd0I2bk9VbDF3UDZNZVJJTjlTYlFzd05KYktqVUZ3RUVyVjljb2VqaEgwZENJTGxJRlMwci1neGkzanY3MGtoM3J3WjQxRU1uVWFCUGZnVzBRT2sxUUVtdGZDUEJORFVnUUE1R2c5RzFVdlE?oc=5",
     "https://news.google.com/rss/articles/CBMigAFBVV95cUxQa0s2MmxMdlktaWlNeEdTUTc4cldPdnJMWjdvN0tfVlRqRzZQM2FMMXlvR2ljd29BZl8xVF9XVTRGZTZxQUx3VWZHdy1xTXFtLUh1UHJSZTcyMHIySDBoa3RjMnJlMm5GSUVpUHpjRzlQQTdFZmowSlJZd01PdTNZZw?oc=5",
     "https://news.google.com/rss/articles/CBMioAFBVV95cUxNM2d4NDg4YW5yVHJUR3czdU1BaHhmSHZiT2kta3dzV2RnamViNUc5anNEY3E1N0Y2azgxNklpUi1CQ01hYTlPeVZQdlRxSERhWTFLNXg1S0hRMU5peVJGZUowYXFKX01UaERTZXJoRS15UEtDWEEtZFJBalJsYnpDTEN0YUFlOVAyMXZsZzlubXFNTGNGRkVxdWpTYWFXaHZS?oc=5",
