@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-08-02T11:43:33.307Z",
+  "updatedAt": "2026-08-02T21:49:00.745Z",
   "posts": [
+    {
+      "slug": "inteligencia-artificial-impulsiona-a-mobilidade-urbana-no-brasil",
+      "title": "Inteligência artificial impulsiona a mobilidade urbana no Brasil",
+      "excerpt": "Empresas brasileiras podem usar IA para otimizar trânsito, reduzir custos e melhorar a experiência de mobilidade nas cidades.",
+      "cover": "/blog/covers/inteligencia-artificial-impulsiona-a-mobilidade-urbana-no-brasil.jpg",
+      "publishedAt": "2026-08-02T21:49:00.745Z",
+      "sourceUrl": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1oWHZETm02OTMxSjJDbE1COTlORjlwQ0tPQlkxQmRzVXlleDE4b3hRbnRmZTVuTmhPbXBrYnAza2ZHOG5kY3RpTnc1M0l3cjI1QTc2VDBnYTVfTk1VQWhHVmQzYWlKbXI2ZXNPUTNDQTVETThfODlaOHVndw?oc=5",
+      "tags": [
+        "IA",
+        "mobilidade urbana",
+        "Brasil",
+        "tecnologia"
+      ]
+    },
     {
       "slug": "christopher-nolan-utilizou-ia-em-a-odisseia",
       "title": "Christopher Nolan utilizou IA em 'A Odisseia'?",
@@ -153,6 +167,7 @@
     }
   ],
   "publishedFingerprints": [
+    "805d5426719ed83b55857327",
     "e240639cba5a3e143236cb75",
     "41b31dd810dff09cdff9ad96",
     "c3a94f913228430e3f0ed8d1",
@@ -166,6 +181,7 @@
     "332b465244dda6c99bbf264d"
   ],
   "publishedSourceUrls": [
+    "https://news.google.com/rss/articles/CBMie0FVX3lxTE1oWHZETm02OTMxSjJDbE1COTlORjlwQ0tPQlkxQmRzVXlleDE4b3hRbnRmZTVuTmhPbXBrYnAza2ZHOG5kY3RpTnc1M0l3cjI1QTc2VDBnYTVfTk1VQWhHVmQzYWlKbXI2ZXNPUTNDQTVETThfODlaOHVndw?oc=5",
     "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUkpleGJNSlVXRFRORjRtQkJXMU50WmxxV0R5VmJ0djEwWnpva0JQSkRLRjU5S19LRWcxUXc0TUFGNWg5TzAxLUt6R1hYeEQ2N29Rbk1CLWlDbVJ0U1Q0VVNZcldpcC1peGlsNlJqbHBISVQ5ejJTRzJTRS1FVVBodjRXRzVHUW5kM3R2bTl3WUpJQ3RkU2dzd084UzctTDJVYnFFbkt3?oc=5",
     "https://news.google.com/rss/articles/CBMixAFBVV95cUxOTnRuZVZ1QlpYclFsT3ZiVjlMQ1BISUxNTHc0LTRZaEFOb2o1d1doZzY4WFhQcHlwVVlIVTNrcmw1RkxVUnlScmJhc19ySzM5TWFkTXlWSXhad2tpc2NrMWgtc3diWXJQQUpNT2lZOXVQbFZGU0xjNG5VOGhLRlh3UjhCdjk4MjRaY1lCX25wb19IZDZmYUZOUVNteUQ5aUY5cXZuN2JaWjVmX2VzQWpESU5qZTlIQ2J1MkJSUkJyOFpZSzlv?oc=5",
     "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQRkZuYzE2Qjd6dzBMbldMdGo5VGlMWWlvcS04ZE52Mk41a1RFWnlydmxIb1BoV0VMeXRrN0t3Qk1Pb09Mano1dkR6d3ZHSDBsNXJrdXJ3RDFBMkdLbnVjTFNER081TGYwRWVGdVJpY3dQbHpkTHZUd1hHRDhwWmNRYlVQY2VienF5R2VEd0I2bk9VbDF3UDZNZVJJTjlTYlFzd05KYktqVUZ3RUVyVjljb2VqaEgwZENJTGxJRlMwci1neGkzanY3MGtoM3J3WjQxRU1uVWFCUGZnVzBRT2sxUUVtdGZDUEJORFVnUUE1R2c5RzFVdlE?oc=5",
