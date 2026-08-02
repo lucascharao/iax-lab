@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-08-01T21:48:03.864Z",
+  "updatedAt": "2026-08-02T11:43:33.307Z",
   "posts": [
+    {
+      "slug": "christopher-nolan-utilizou-ia-em-a-odisseia",
+      "title": "Christopher Nolan utilizou IA em 'A Odisseia'?",
+      "excerpt": "Reportagem questiona se o diretor Christopher Nolan recorreu à inteligência artificial na produção de 'A Odisseia'. Entenda o contexto e as implicações para o mercado audiovisual.",
+      "cover": "/blog/covers/christopher-nolan-utilizou-ia-em-a-odisseia.jpg",
+      "publishedAt": "2026-08-02T11:43:33.307Z",
+      "sourceUrl": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUkpleGJNSlVXRFRORjRtQkJXMU50WmxxV0R5VmJ0djEwWnpva0JQSkRLRjU5S19LRWcxUXc0TUFGNWg5TzAxLUt6R1hYeEQ2N29Rbk1CLWlDbVJ0U1Q0VVNZcldpcC1peGlsNlJqbHBISVQ5ejJTRzJTRS1FVVBodjRXRzVHUW5kM3R2bTl3WUpJQ3RkU2dzd084UzctTDJVYnFFbkt3?oc=5",
+      "tags": [
+        "IA",
+        "Cinema",
+        "Christopher Nolan"
+      ]
+    },
     {
       "slug": "policia-civil-do-acre-promove-palestra-sobre-inteligencia-artificial-em-",
       "title": "Polícia Civil do Acre promove palestra sobre inteligência artificial em investigações",
@@ -140,6 +153,7 @@
     }
   ],
   "publishedFingerprints": [
+    "e240639cba5a3e143236cb75",
     "41b31dd810dff09cdff9ad96",
     "c3a94f913228430e3f0ed8d1",
     "3a3f49a3b0da3bbe901e10af",
@@ -152,6 +166,7 @@
     "332b465244dda6c99bbf264d"
   ],
   "publishedSourceUrls": [
+    "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUkpleGJNSlVXRFRORjRtQkJXMU50WmxxV0R5VmJ0djEwWnpva0JQSkRLRjU5S19LRWcxUXc0TUFGNWg5TzAxLUt6R1hYeEQ2N29Rbk1CLWlDbVJ0U1Q0VVNZcldpcC1peGlsNlJqbHBISVQ5ejJTRzJTRS1FVVBodjRXRzVHUW5kM3R2bTl3WUpJQ3RkU2dzd084UzctTDJVYnFFbkt3?oc=5",
     "https://news.google.com/rss/articles/CBMixAFBVV95cUxOTnRuZVZ1QlpYclFsT3ZiVjlMQ1BISUxNTHc0LTRZaEFOb2o1d1doZzY4WFhQcHlwVVlIVTNrcmw1RkxVUnlScmJhc19ySzM5TWFkTXlWSXhad2tpc2NrMWgtc3diWXJQQUpNT2lZOXVQbFZGU0xjNG5VOGhLRlh3UjhCdjk4MjRaY1lCX25wb19IZDZmYUZOUVNteUQ5aUY5cXZuN2JaWjVmX2VzQWpESU5qZTlIQ2J1MkJSUkJyOFpZSzlv?oc=5",
     "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQRkZuYzE2Qjd6dzBMbldMdGo5VGlMWWlvcS04ZE52Mk41a1RFWnlydmxIb1BoV0VMeXRrN0t3Qk1Pb09Mano1dkR6d3ZHSDBsNXJrdXJ3RDFBMkdLbnVjTFNER081TGYwRWVGdVJpY3dQbHpkTHZUd1hHRDhwWmNRYlVQY2VienF5R2VEd0I2bk9VbDF3UDZNZVJJTjlTYlFzd05KYktqVUZ3RUVyVjljb2VqaEgwZENJTGxJRlMwci1neGkzanY3MGtoM3J3WjQxRU1uVWFCUGZnVzBRT2sxUUVtdGZDUEJORFVnUUE1R2c5RzFVdlE?oc=5",
     "https://news.google.com/rss/articles/CBMigAFBVV95cUxQa0s2MmxMdlktaWlNeEdTUTc4cldPdnJMWjdvN0tfVlRqRzZQM2FMMXlvR2ljd29BZl8xVF9XVTRGZTZxQUx3VWZHdy1xTXFtLUh1UHJSZTcyMHIySDBoa3RjMnJlMm5GSUVpUHpjRzlQQTdFZmowSlJZd01PdTNZZw?oc=5",
