@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-08-03T13:26:16.859Z",
+  "updatedAt": "2026-08-03T22:01:37.256Z",
   "posts": [
+    {
+      "slug": "producao-do-anel-com-ia-e-vaiada-no-festival-de-bayreuth",
+      "title": "Produção do 'Anel' com IA é vaiada no Festival de Bayreuth",
+      "excerpt": "Uso de inteligência artificial em montagem do ciclo wagneriano provoca reação negativa do público no tradicional Festival de Bayreuth.",
+      "cover": "/blog/covers/producao-do-anel-com-ia-e-vaiada-no-festival-de-bayreuth.jpg",
+      "publishedAt": "2026-08-03T22:01:37.256Z",
+      "sourceUrl": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOc0dSYmxYQlowaGJyVV8zdXBjcHJZenVucXVJM2lad3RPZDRRWW01R1hkMkJjUFlMNnJjSzZYQzFWd2tzd2hPVjl3RWhHZ3NRTG9NTTMwNzhDVXE3c0FxS2NKWE91TVV6TjN4NGY2MzY5OG9PemRpeWdjZGVtemJfMG1tcFpYU1E0cm5TdUZmQXRjWklIcHdpSFBOTnVQRTJfdTNXbmp4QW5wODd2dURlSA?oc=5",
+      "tags": [
+        "IA",
+        "Festival de Bayreuth",
+        "Música Clássica"
+      ]
+    },
     {
       "slug": "projeto-da-ufs-impulsiona-pesquisa-em-inteligencia-artificial-para-aplic",
       "title": "Projeto da UFS impulsiona pesquisa em inteligência artificial para aplicações empresariais",
@@ -181,6 +194,7 @@
     }
   ],
   "publishedFingerprints": [
+    "8d70d8442ee383c7d3458355",
     "fc8cfc5696915e04493172d5",
     "805d5426719ed83b55857327",
     "e240639cba5a3e143236cb75",
@@ -196,6 +210,7 @@
     "332b465244dda6c99bbf264d"
   ],
   "publishedSourceUrls": [
+    "https://news.google.com/rss/articles/CBMisAFBVV95cUxOc0dSYmxYQlowaGJyVV8zdXBjcHJZenVucXVJM2lad3RPZDRRWW01R1hkMkJjUFlMNnJjSzZYQzFWd2tzd2hPVjl3RWhHZ3NRTG9NTTMwNzhDVXE3c0FxS2NKWE91TVV6TjN4NGY2MzY5OG9PemRpeWdjZGVtemJfMG1tcFpYU1E0cm5TdUZmQXRjWklIcHdpSFBOTnVQRTJfdTNXbmp4QW5wODd2dURlSA?oc=5",
     "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNcVFWemFDNzlJSnA3Sks4QzRwdFhrVG1GbWlkYzdyQmx1cG0zbEdKRnNqS1B6YWl1c052RzNac1ZRckJOZXlIbGQzZGx1UV9BR25ubkpncTlKOEk3NWdYV0FRclBmS0dJdDRYUWpNcFNEdWZlT3pZdmxmam4xWFY1bGUxVndDVFJuLUhDTHJCWGkxRzZOblZhbkp4X3ltdHA2NUNVNmd3TmwzTXc0OEk1TjdOMFdxR0tHb2p2QmFlU0Rkdw?oc=5",
     "https://news.google.com/rss/articles/CBMie0FVX3lxTE1oWHZETm02OTMxSjJDbE1COTlORjlwQ0tPQlkxQmRzVXlleDE4b3hRbnRmZTVuTmhPbXBrYnAza2ZHOG5kY3RpTnc1M0l3cjI1QTc2VDBnYTVfTk1VQWhHVmQzYWlKbXI2ZXNPUTNDQTVETThfODlaOHVndw?oc=5",
     "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUkpleGJNSlVXRFRORjRtQkJXMU50WmxxV0R5VmJ0djEwWnpva0JQSkRLRjU5S19LRWcxUXc0TUFGNWg5TzAxLUt6R1hYeEQ2N29Rbk1CLWlDbVJ0U1Q0VVNZcldpcC1peGlsNlJqbHBISVQ5ejJTRzJTRS1FVVBodjRXRzVHUW5kM3R2bTl3WUpJQ3RkU2dzd084UzctTDJVYnFFbkt3?oc=5",
