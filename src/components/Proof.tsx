@@ -1,20 +1,11 @@
 import { motion } from 'framer-motion'
-
-const WA = 'https://wa.me/5551991882447'
+import { WA } from '../lib/whatsapp'
 
 const outcomes = [
   {
-    title: 'Método na ponta',
-    text: 'Sua equipe deixa de improvisar com ChatGPT e passa a usar IA com padrão, segurança e qualidade.',
-  },
-  {
-    title: 'Aplicação no processo real',
-    text: 'Consultoria, treinamento e curso de IA encaixados nas tarefas e nos setores que realmente importam — não slide genérico.',
-  },
-  {
-    title: 'Resultado que se sustenta',
-    text: 'Consultoria de IA, mentoria, palestra, curso ou desenvolvimento com IA — o ganho continua depois do primeiro impulso.',
-  },
+    title: 'Método na ponta', text: 'Sua equipe deixa de improvisar com ChatGPT e passa a usar IA com padrão, segurança e qualidade.', }, {
+    title: 'Aplicação no processo real', text: 'Consultoria, treinamento e curso de IA encaixados nas tarefas e nos setores que realmente importam. Sem slide genérico.', }, {
+    title: 'Resultado que se sustenta', text: 'Consultoria de IA, mentoria, palestra, curso ou desenvolvimento com IA: o ganho continua depois do primeiro impulso.', },
 ]
 
 export default function Proof() {
@@ -30,13 +21,12 @@ export default function Proof() {
           >
             <p className="eyebrow lg:justify-start justify-center">O que muda para você</p>
             <h2 className="heading-lg text-[1.75rem] sm:text-3xl md:text-5xl mb-4">
-              Você não compra hype de IA.
+              Você não compra moda de IA.
               <br />
               <span className="accent-text">Leva aplicação.</span>
             </h2>
             <p className="lead mb-8 mx-auto lg:mx-0">
-              O foco é ensinar e estruturar inteligência artificial: equipe mais rápida,
-              processos mais leves e clareza do que priorizar — com quem já formou
+              O foco é ensinar e estruturar inteligência artificial: equipe mais rápida, processos mais leves e clareza do que priorizar, com quem já formou
               +2.000 profissionais em IA.
             </p>
 

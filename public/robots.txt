@@ -1,10 +1,10 @@
-# IAX LAB — https://iaxlab.top
+# IAX LAB,  https://iaxlab.top
 User-agent: *
 Allow: /
 
 # AI / answer engines (AEO): permitir citação e indexação
 User-agent: GPTBot
-Allow: /
+Disallow: /
 
 User-agent: ChatGPT-User
 Allow: /

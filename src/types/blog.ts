@@ -1,4 +1,4 @@
-/** Schema de post do Blog IA — gerado pela automação diária. */
+/** Schema de post do Blog IA  -  gerado pela automação diária. */
 export interface BlogSource {
   title: string
   url: string
@@ -27,7 +27,7 @@ export interface BlogPost extends BlogPostMeta {
 export interface BlogIndex {
   updatedAt: string
   posts: BlogPostMeta[]
-  /** fingerprints já usados — nunca repetir */
+  /** fingerprints já usados  -  nunca repetir */
   publishedFingerprints: string[]
   publishedSourceUrls: string[]
 }

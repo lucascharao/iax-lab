@@ -1,0 +1,81 @@
+{
+  "name": "Blog IA — 07:30 e 18:00 (Brasília)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "30 7 * * *"
+            }
+          ]
+        }
+      },
+      "id": "cron-morning",
+      "name": "07:30 Brasília",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 18 * * *"
+            }
+          ]
+        }
+      },
+      "id": "cron-evening",
+      "name": "18:00 Brasília",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 500]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://172.17.0.1:3921/blog/publish",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{$env.BLOG_CRON_TOKEN}}"
+            },
+            {
+              "name": "X-Slot",
+              "value": "={{$json.slot || 'n8n'}}"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 600000
+        }
+      },
+      "id": "http-publish",
+      "name": "Publicar + Deploy no VPS",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [560, 400]
+    }
+  ],
+  "connections": {
+    "07:30 Brasília": {
+      "main": [[{ "node": "Publicar + Deploy no VPS", "type": "main", "index": 0 }]]
+    },
+    "18:00 Brasília": {
+      "main": [[{ "node": "Publicar + Deploy no VPS", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "timezone": "America/Sao_Paulo",
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  }
+}

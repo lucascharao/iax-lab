@@ -8,7 +8,7 @@ type Props = {
   className?: string
 }
 
-/** Wrapper de parallax por scroll — move o conteúdo em Y proporcional ao scroll (scrub). */
+/** Wrapper de parallax por scroll  -  move o conteúdo em Y proporcional ao scroll (scrub). */
 export default function Parallax({ children, speed = -0.15, className }: Props) {
   const ref = useRef<HTMLDivElement>(null)
 
@@ -16,15 +16,8 @@ export default function Parallax({ children, speed = -0.15, className }: Props) 
     const el = ref.current
     if (!el) return
     const tween = gsap.to(el, {
-      y: () => speed * window.innerHeight,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true,
-      },
-    })
+      y: () => speed * window.innerHeight, ease: 'none', scrollTrigger: {
+        trigger: el, start: 'top bottom', end: 'bottom top', scrub: true, }, })
     return () => {
       tween.scrollTrigger?.kill()
       tween.kill()

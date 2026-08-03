@@ -1,51 +1,21 @@
 import { motion } from 'framer-motion'
 import {
-  ArrowUpRight,
-  BriefcaseBusiness,
-  Compass,
-  GraduationCap,
-  Mic2,
-  Code2,
+  ArrowUpRight, BriefcaseBusiness, Compass, GraduationCap, Mic2, Code2,
 } from 'lucide-react'
-
-const WA = 'https://wa.me/5551991882447'
+import { WA } from '../lib/whatsapp'
 
 const services = [
   {
-    icon: BriefcaseBusiness,
-    name: 'Consultoria de IA',
-    description:
-      'Diagnóstico e caminho claro: onde a inteligência artificial gera ganho real, o que priorizar e como estruturar o uso de IA no dia a dia com padrão e segurança.',
-    cta: 'Quero consultoria de IA',
-  },
-  {
-    icon: Compass,
-    name: 'Mentoria em IA',
-    description:
-      'Acompanhamento próximo de líderes e times para aplicar IA com método na rotina real. Menos teoria, mais decisão e execução com inteligência artificial.',
-    cta: 'Quero mentoria em IA',
-  },
-  {
-    icon: GraduationCap,
-    name: 'Treinamento e Curso de IA',
-    description:
-      'Capacitação prática e curso de IA para a equipe aprender nas tarefas que já executa — com padrão, qualidade e segurança no uso de ferramentas de inteligência artificial.',
-    cta: 'Treinar minha equipe em IA',
-  },
-  {
-    icon: Mic2,
-    name: 'Palestra de IA',
-    description:
-      'Palestra com IA sob medida para convenções, eventos e imersões de liderança. Alinha a empresa e mostra o que o time pode fazer diferente com inteligência artificial.',
-    cta: 'Levar palestra de IA ao meu evento',
-  },
-  {
-    icon: Code2,
-    name: 'Desenvolvimento com IA',
-    description:
-      'Sistemas, painéis, aplicações web e automações com IA sob medida. Menos trabalho manual, mais visibilidade e inteligência artificial encaixada no processo.',
-    cta: 'Solicitar desenvolvimento com IA',
-  },
+    icon: BriefcaseBusiness, name: 'Consultoria', description:
+      'Diagnóstico e caminho claro: onde a inteligência artificial gera ganho real, o que priorizar e como estruturar o uso de IA no dia a dia com padrão e segurança.', cta: 'Quero consultoria', }, {
+    icon: Compass, name: 'Mentoria', description:
+      'Acompanhamento próximo de líderes e times para aplicar IA com método na rotina real. Menos teoria, mais decisão e execução com inteligência artificial.', cta: 'Quero mentoria', }, {
+    icon: GraduationCap, name: 'Treinamento e Curso', description:
+      'Capacitação prática e curso de IA para a equipe aprender nas tarefas que já executa, com padrão, qualidade e segurança.', cta: 'Treinar minha equipe', }, {
+    icon: Mic2, name: 'Palestra', description:
+      'Palestra com IA sob medida para convenções, eventos e imersões de liderança. Alinha a empresa e mostra o que o time pode fazer diferente com inteligência artificial.', cta: 'Levar palestra ao meu evento', }, {
+    icon: Code2, name: 'Desenvolvimento', description:
+      'Sistemas, painéis, aplicações web e automações com IA sob medida. Menos trabalho manual, mais visibilidade e inteligência artificial encaixada no processo.', cta: 'Solicitar desenvolvimento', },
 ]
 
 export default function Services() {
@@ -58,14 +28,13 @@ export default function Services() {
           viewport={{ once: true, margin: '-80px' }}
           className="section-center max-w-2xl mx-auto mb-8 md:mb-12"
         >
-          <p className="eyebrow">Serviços de inteligência artificial</p>
+          <p className="eyebrow">Soluções para empresas</p>
           <h2 className="heading-lg text-[1.75rem] sm:text-3xl md:text-5xl mb-4">
-            Consultoria, curso, palestra e desenvolvimento com IA —{' '}
-            <span className="accent-text">claro e direto.</span>
+            Consultoria, curso, palestra e desenvolvimento.{' '}
+            <span className="accent-text">Claro e direto.</span>
           </h2>
           <p className="lead">
-            Cinco formatos para a sua empresa usar IA de verdade: ensinar o time,
-            estruturar a operação e desenvolver com IA quando a rotina precisa de
+            Cinco formatos para a sua empresa usar IA de verdade: ensinar o time, estruturar a operação e desenvolver com IA quando a rotina precisa de
             ferramenta sob medida.
           </p>
         </motion.div>

@@ -1,0 +1,14 @@
+[Unit]
+Description=IAX LAB Blog publish webhook (for n8n)
+After=network.target docker.service
+
+[Service]
+Type=simple
+WorkingDirectory=/root/iaxlab-site
+EnvironmentFile=/root/iaxlab-site/.env
+ExecStart=/usr/bin/node /root/iaxlab-site/scripts/blog-webhook-server.mjs
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

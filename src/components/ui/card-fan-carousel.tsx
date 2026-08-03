@@ -19,13 +19,7 @@ const MAX_VISIBLE = 7
 const HALF = 3
 
 const FAN_POSITIONS = [
-  { rot: -21, scale: 0.7756, x: -30, y: 7.3, zIndex: 1 },
-  { rot: -14, scale: 0.8498, x: -22, y: 4.0, zIndex: 2 },
-  { rot: -7, scale: 0.9346, x: -11, y: 1.3, zIndex: 3 },
-  { rot: 0, scale: 1.0, x: 0, y: 0.0, zIndex: 10 },
-  { rot: 7, scale: 0.9346, x: 11, y: 1.3, zIndex: 3 },
-  { rot: 14, scale: 0.8498, x: 22, y: 4.0, zIndex: 2 },
-  { rot: 21, scale: 0.7756, x: 30, y: 7.3, zIndex: 1 },
+  { rot: -21, scale: 0.7756, x: -30, y: 7.3, zIndex: 1 }, { rot: -14, scale: 0.8498, x: -22, y: 4.0, zIndex: 2 }, { rot: -7, scale: 0.9346, x: -11, y: 1.3, zIndex: 3 }, { rot: 0, scale: 1.0, x: 0, y: 0.0, zIndex: 10 }, { rot: 7, scale: 0.9346, x: 11, y: 1.3, zIndex: 3 }, { rot: 14, scale: 0.8498, x: 22, y: 4.0, zIndex: 2 }, { rot: 21, scale: 0.7756, x: 30, y: 7.3, zIndex: 1 },
 ]
 
 function getResponsiveMultiplier(width: number) {
@@ -58,12 +52,7 @@ function getSlotConfig(totalCards: number, slot: number) {
   const distance = totalCards > 1 ? (slot - center) / center : 0
   const absDistance = Math.abs(distance)
   return {
-    rot: distance * 21,
-    scale: 1.0 - 0.2244 * absDistance * absDistance,
-    x: distance * 30,
-    y: absDistance * absDistance * 7.3,
-    zIndex: 10 - Math.abs(slot - center),
-  }
+    rot: distance * 21, scale: 1.0 - 0.2244 * absDistance * absDistance, x: distance * 30, y: absDistance * absDistance * 7.3, zIndex: 10 - Math.abs(slot - center), }
 }
 
 const ARROW_CLASSES =
@@ -91,9 +80,7 @@ export default function SocialCards({ cards }: SocialCardsProps) {
         map.set(((center + slot - HALF) % totalCards + totalCards) % totalCards, slot)
       }
       return map
-    },
-    [totalCards, needsPagination, cards],
-  )
+    }, [totalCards, needsPagination, cards], )
 
   const cycle = useCallback(
     (direction: 'left' | 'right') => {
@@ -101,11 +88,8 @@ export default function SocialCards({ cards }: SocialCardsProps) {
       isAnimating.current = true
       directionRef.current = direction
       setCenterIndex((prev) =>
-        direction === 'right' ? (prev + 1) % totalCards : (prev - 1 + totalCards) % totalCards,
-      )
-    },
-    [totalCards, needsPagination],
-  )
+        direction === 'right' ? (prev + 1) % totalCards : (prev - 1 + totalCards) % totalCards, )
+    }, [totalCards, needsPagination], )
 
   useEffect(() => {
     const container = containerRef.current
@@ -141,32 +125,16 @@ export default function SocialCards({ cards }: SocialCardsProps) {
       if (slot !== undefined) {
         const { x, y, rot, scale, zIndex } = config(slot)
         const target = {
-          x: `${x * multiplier}rem`,
-          y: `${y * hMult}rem`,
-          rotation: rot,
-          scale,
-          opacity: 1,
-          zIndex,
-        }
+          x: `${x * multiplier}rem`, y: `${y * hMult}rem`, rotation: rot, scale, opacity: 1, zIndex, }
 
         if (isFirstMount) {
           gsap.set(card, { x: 0, y: `${12 * hMult}rem`, rotation: 0, scale: 0.5, opacity: 0 })
           gsap.to(card, {
-            ...target,
-            duration: 1.2,
-            ease: 'elastic.out(1.05,.78)',
-            delay: 0.2 + slot * 0.06,
-            onComplete: onCardDone,
-          })
+            ...target, duration: 1.2, ease: 'elastic.out(1.05,.78)', delay: 0.2 + slot * 0.06, onComplete: onCardDone, })
         } else if (!wasVisible) {
           const enterX = direction === 'right' ? 40 : -40
           gsap.set(card, {
-            x: `${enterX}rem`,
-            y: `${y * hMult}rem`,
-            rotation: direction === 'right' ? 30 : -30,
-            scale: 0.5,
-            opacity: 0,
-          })
+            x: `${enterX}rem`, y: `${y * hMult}rem`, rotation: direction === 'right' ? 30 : -30, scale: 0.5, opacity: 0, })
           gsap.to(card, { ...target, duration: 0.6, ease: 'power2.out', onComplete: onCardDone })
         } else {
           gsap.to(card, { ...target, duration: 0.5, ease: 'power2.out', onComplete: onCardDone })
@@ -174,14 +142,7 @@ export default function SocialCards({ cards }: SocialCardsProps) {
       } else if (wasVisible) {
         const exitX = direction === 'right' ? -40 : 40
         gsap.to(card, {
-          x: `${exitX}rem`,
-          opacity: 0,
-          scale: 0.5,
-          rotation: direction === 'right' ? -30 : 30,
-          duration: 0.4,
-          ease: 'power2.in',
-          zIndex: 0,
-        })
+          x: `${exitX}rem`, opacity: 0, scale: 0.5, rotation: direction === 'right' ? -30 : 30, duration: 0.4, ease: 'power2.in', zIndex: 0, })
       } else if (isFirstMount) {
         gsap.set(card, { opacity: 0, scale: 0.3, x: 0, y: 0, zIndex: 0 })
       }
@@ -240,15 +201,7 @@ export default function SocialCards({ cards }: SocialCardsProps) {
         }
 
         gsap.to(el, {
-          x: `${targetX}rem`,
-          y: `${targetY}rem`,
-          rotation: targetRot,
-          scale: targetScale,
-          duration: 0.5,
-          delay,
-          ease: 'elastic.out(1,.75)',
-          overwrite: 'auto',
-        })
+          x: `${targetX}rem`, y: `${targetY}rem`, rotation: targetRot, scale: targetScale, duration: 0.5, delay, ease: 'elastic.out(1,.75)', overwrite: 'auto', })
         gsap.set(el, { zIndex: base.zIndex })
       })
     }

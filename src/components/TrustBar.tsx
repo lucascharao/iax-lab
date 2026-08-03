@@ -1,8 +1,5 @@
 const items = [
-  { value: '5', label: 'serviços de IA para a operação' },
-  { value: '+2.000', label: 'profissionais formados em IA' },
-  { value: '+2 anos', label: 'em empresas e em sala' },
-  { value: 'BR', label: 'presencial e remoto' },
+  { value: '5', label: 'serviços de IA para a operação' }, { value: '+2.000', label: 'profissionais formados em IA' }, { value: '+2 anos', label: 'em empresas e em sala' }, { value: 'BR', label: 'presencial e remoto' },
 ]
 
 export default function TrustBar() {

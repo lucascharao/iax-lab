@@ -10,8 +10,7 @@ export async function fetchBlogIndex(): Promise<BlogIndex> {
 
 export async function fetchBlogPost(slug: string): Promise<BlogPost> {
   const res = await fetch(`${BASE}/posts/${encodeURIComponent(slug)}.json`, {
-    cache: 'no-store',
-  })
+    cache: 'no-store', })
   if (!res.ok) throw new Error('Post não encontrado')
   return res.json() as Promise<BlogPost>
 }
@@ -19,13 +18,7 @@ export async function fetchBlogPost(slug: string): Promise<BlogPost> {
 export function formatPostDate(iso: string): string {
   try {
     return new Intl.DateTimeFormat('pt-BR', {
-      day: '2-digit',
-      month: 'long',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      timeZone: 'America/Sao_Paulo',
-    }).format(new Date(iso))
+      day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'America/Sao_Paulo', }).format(new Date(iso))
   } catch {
     return iso
   }
@@ -43,6 +36,16 @@ export function renderSimpleMarkdown(md: string): string {
   const lines = md.replace(/\r\n/g, '\n').split('\n')
   const blocks: string[] = []
   let para: string[] = []
+  let list: string[] = []
+
+  const inline = (s: string) => {
+    let t = escape(s)
+    t = t.replace(
+      /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>', )
+    t = t.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    t = t.replace(/\*([^*]+)\*/g, '<em>$1</em>')
+    return t
+  }
 
   const flushPara = () => {
     if (!para.length) return
@@ -51,40 +54,48 @@ export function renderSimpleMarkdown(md: string): string {
     para = []
   }
 
-  const inline = (s: string) => {
-    let t = escape(s)
-    t = t.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
-    t = t.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-    t = t.replace(/\*([^*]+)\*/g, '<em>$1</em>')
-    return t
+  const flushList = () => {
+    if (!list.length) return
+    blocks.push(`<ul>${list.map((li) => `<li>${inline(li)}</li>`).join('')}</ul>`)
+    list = []
   }
 
   for (const raw of lines) {
     const line = raw.trimEnd()
     if (!line.trim()) {
       flushPara()
+      flushList()
       continue
     }
     if (line.startsWith('## ')) {
       flushPara()
+      flushList()
       blocks.push(`<h2>${inline(line.slice(3).trim())}</h2>`)
       continue
     }
     if (line.startsWith('# ')) {
       flushPara()
+      flushList()
       blocks.push(`<h2>${inline(line.slice(2).trim())}</h2>`)
       continue
     }
-    if (line.startsWith('- ')) {
+    if (line.startsWith('- ') || line.startsWith('* ')) {
       flushPara()
-      const items: string[] = [line.slice(2)]
-      // consumed in loop awkwardly — simple: single-line list items only via para
-      blocks.push(`<ul><li>${inline(items[0])}</li></ul>`)
+      list.push(line.slice(2).trim())
       continue
     }
+    // numbered list "1. item"
+    const num = line.match(/^\d+\.\s+(.+)$/)
+    if (num) {
+      flushPara()
+      list.push(num[1].trim())
+      continue
+    }
+    flushList()
     para.push(line.trim())
   }
   flushPara()
+  flushList()
   return blocks.join('\n')
 }
 

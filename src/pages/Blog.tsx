@@ -6,18 +6,19 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { coverUrl, fetchBlogIndex, formatPostDate } from '../lib/blog'
 import type { BlogPostMeta } from '../types/blog'
+import { getSsrData } from '../lib/ssr-data'
 
 export default function Blog() {
-  const [posts, setPosts] = useState<BlogPostMeta[] | null>(null)
+  const [posts, setPosts] = useState<BlogPostMeta[] | null>(() => getSsrData()?.blogIndex?.posts ?? null)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    document.title =
-      'Blog IA | Notícias de inteligência artificial — IAX LAB'
+    document.title = 'Blog IA: análises para líderes de empresas | IAX LAB'
+    if (posts !== null) return
     fetchBlogIndex()
       .then((idx) => setPosts(idx.posts))
       .catch(() => setError('Não foi possível carregar as notícias agora.'))
-  }, [])
+  }, [posts])
 
   return (
     <main className="relative min-h-screen">
@@ -31,12 +32,13 @@ export default function Blog() {
           >
             <p className="eyebrow">Blog IA</p>
             <h1 className="heading-lg text-[1.85rem] sm:text-4xl md:text-5xl mb-4">
-              Notícias de inteligência artificial{' '}
-              <span className="accent-text">atualizadas todo dia.</span>
+              Colunas de IA{' '}
+              <span className="accent-text">para quem decide na empresa.</span>
             </h1>
             <p className="lead">
-              Duas vezes ao dia (7h30 e 18h) publicamos uma notícia de IA com
-              resumo, capa, data e links das fontes — sem repetir o mesmo tema.
+              Duas vezes ao dia (7h30 e 18h): uma notícia atual de inteligência
+              artificial resenhada em formato de coluna. Análise, contexto e o
+              que fazer na operação, com capa, data e fontes.
             </p>
           </motion.div>
 
@@ -103,14 +105,14 @@ export default function Blog() {
                           {formatPostDate(post.publishedAt)}
                         </time>
                       </div>
-                      <h2 className="font-display text-lg sm:text-xl font-semibold tracking-tight leading-snug group-hover:text-neon transition-colors">
+                      <h2 className="font-display text-[0.98rem] sm:text-base font-semibold tracking-tight leading-snug group-hover:text-neon transition-colors">
                         {post.title}
                       </h2>
                       <p className="mt-2 text-mist text-sm leading-relaxed flex-1 line-clamp-3">
                         {post.excerpt}
                       </p>
                       <span className="mt-4 text-sm font-bold text-neon inline-flex items-center gap-1">
-                        Ler notícia
+                        Ler coluna
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                       </span>
                     </div>

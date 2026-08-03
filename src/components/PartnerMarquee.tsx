@@ -1,28 +1,13 @@
 const partners = [
   {
-    name: 'Academia Lendária',
-    src: '/partners/academia-lendaria.png',
-    // recortada + leve boost para igualar peso visual da Mutumilk
-    scale: 'scale-[1.12]',
-  },
-  {
-    name: 'Foco no Comercial',
-    src: '/partners/foco-no-comercial.png',
-    scale: '',
-  },
-  {
-    name: 'Instituto Max Tovar',
-    src: '/partners/instituto-max-tovar.png',
-    scale: '',
-  },
-  {
-    name: 'Laticínios Mutumilk',
-    src: '/partners/mutumilk.png',
-    scale: '',
-  },
+    name: 'Academia Lendária', src: '/partners/academia-lendaria.png', // recortada + leve boost para igualar peso visual da Mutumilk
+    scale: 'scale-[1.12]', }, {
+    name: 'Foco no Comercial', src: '/partners/foco-no-comercial.png', scale: 'scale-[1.22]', }, {
+    name: 'Instituto Max Tovar', src: '/partners/instituto-max-tovar.png', scale: 'scale-[1.22]', }, {
+    name: 'Laticínios Mutumilk', src: '/partners/mutumilk.png', scale: '', },
 ]
 
-/** Letreiro infinito — todas as logos no mesmo tamanho visual (padrão Mutumilk). */
+/** Letreiro infinito  -  todas as logos no mesmo tamanho visual (padrão Mutumilk). */
 export default function PartnerMarquee() {
   const row = [...partners, ...partners, ...partners]
 

@@ -2,14 +2,98 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://iaxlab.top/</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://iaxlab.top/blog</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://iaxlab.top/blog/producao-do-anel-com-ia-e-vaiada-no-festival-de-bayreuth</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iaxlab.top/blog/projeto-da-ufs-impulsiona-pesquisa-em-inteligencia-artificial-para-aplic</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iaxlab.top/blog/inteligencia-artificial-impulsiona-a-mobilidade-urbana-no-brasil</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iaxlab.top/blog/christopher-nolan-utilizou-ia-em-a-odisseia</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iaxlab.top/blog/policia-civil-do-acre-promove-palestra-sobre-inteligencia-artificial-em-</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iaxlab.top/blog/oab-varginha-lanca-curso-de-inteligencia-artificial-para-advogados</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iaxlab.top/blog/inteligencia-artificial-ganha-espaco-nas-escolas-brasileiras</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iaxlab.top/blog/o-que-muda-na-lideranca-na-era-da-inteligencia-artificial</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iaxlab.top/blog/plataforma-confluent-da-ibm-oferece-dados-qualificados-para-gestao-e-int</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iaxlab.top/blog/inteligencia-artificial-e-tecnologia-impulsionam-o-segundo-dia-da-superb</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iaxlab.top/blog/uem-abre-400-vagas-em-especializacao-a-distancia-em-inteligencia-artific</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iaxlab.top/blog/avanco-da-ia-aumenta-alertas-sobre-desinformacao-nas-eleicoes</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iaxlab.top/blog/inteligencia-artificial-comeca-a-fazer-descobertas-e-redefine-o-futuro-d</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iaxlab.top/blog/clicksign-lanca-tecnologia-para-gerenciar-contratos-por-conversa-com-ia</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

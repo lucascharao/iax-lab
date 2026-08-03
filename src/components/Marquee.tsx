@@ -1,12 +1,8 @@
 const items = [
-  'Equipe mais rápida nas tarefas do dia a dia',
-  'Menos erro e menos retrabalho com IA',
-  'Processos mais leves, setor por setor',
-  'IA com método, segurança e padrão',
-  'Visibilidade e automação no que importa',
+  'Equipe mais rápida nas tarefas do dia a dia', 'Menos erro e menos retrabalho com IA', 'Processos mais leves, setor por setor', 'IA com método, segurança e padrão', 'Visibilidade e automação no que importa',
 ]
 
-/** Barra de autoridade — faixa infinita logo abaixo do hero. */
+/** Barra de autoridade  -  faixa infinita logo abaixo do hero. */
 export default function Marquee() {
   const row = [...items, ...items, ...items]
   return (
