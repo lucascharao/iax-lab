@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-
-const WA = 'https://wa.me/5551991882447'
+import { WA } from '../lib/whatsapp'
 
 function sectionHref(hash: string, isHome: boolean) {
   return isHome ? hash : `/${hash}`
@@ -16,12 +15,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   const links = [
-    { label: 'Serviços de IA', href: sectionHref('#servicos', isHome) },
-    { label: 'Resultados', href: sectionHref('#resultados', isHome) },
-    { label: 'Eventos', href: sectionHref('#eventos', isHome) },
-    { label: 'Blog IA', href: '/blog' },
-    { label: 'Dúvidas', href: sectionHref('#faq', isHome) },
-  ]
+    { label: 'Soluções', href: sectionHref('#servicos', isHome) }, { label: 'Resultados', href: sectionHref('#resultados', isHome) }, { label: 'Eventos', href: sectionHref('#eventos', isHome) }, { label: 'Blog IA', href: '/blog' }, { label: 'Dúvidas', href: sectionHref('#faq', isHome) }, ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -57,11 +51,11 @@ export default function Navbar() {
           to="/"
           className="flex items-center gap-2.5 sm:gap-3 shrink-0 group"
           onClick={() => setOpen(false)}
-          aria-label="IAX LAB — início"
+          aria-label="IAX LAB: início"
         >
           <img
             src="/logo-iax.png"
-            alt="IAX LAB — consultoria e treinamento de IA"
+            alt="IAX LAB: consultoria e treinamento de IA"
             className="h-12 w-12 sm:h-14 sm:w-14 rounded-xl object-cover shadow-sm ring-1 ring-black/10 group-hover:opacity-95 transition-opacity"
             width="56"
             height="56"
@@ -90,8 +84,7 @@ export default function Navbar() {
               >
                 {l.label}
               </a>
-            ),
-          )}
+            ), )}
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3">
@@ -144,8 +137,7 @@ export default function Navbar() {
                   >
                     {l.label}
                   </a>
-                ),
-              )}
+                ), )}
             </div>
           </motion.div>
         )}

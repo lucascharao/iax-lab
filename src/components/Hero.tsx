@@ -1,24 +1,17 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
-
-const WA = 'https://wa.me/5551991882447'
+import { WA } from '../lib/whatsapp'
 
 const OFFERINGS = [
-  'Consultoria de IA',
-  'Mentoria em IA',
-  'Treinamento e Curso de IA',
-  'Palestra de IA',
-  'Desenvolvimento com IA',
+  'Consultoria', 'Mentoria', 'Treinamento e Curso', 'Palestra', 'Desenvolvimento',
 ]
 
 const PROOFS = [
-  'IA com método na operação',
-  '+2.000 profissionais formados em IA',
-  'Presencial e remoto no Brasil',
+  'IA com método na operação', '+2.000 profissionais formados em IA', 'Presencial e remoto no Brasil',
 ]
 
 /**
- * Hero light + confiante — focado em empresário (clareza, prova, CTA).
+ * Hero light + confiante, focado em empresário (clareza, prova, CTA).
  * H1 e lead otimizados para SEO/AEO: consultoria, treinamento, palestra e desenvolvimento com IA.
  */
 export default function Hero() {
@@ -37,7 +30,7 @@ export default function Hero() {
             >
               <img
                 src="/logo-iax.png"
-                alt="IAX LAB — consultoria e treinamento de inteligência artificial"
+                alt="IAX LAB: consultoria e treinamento de inteligência artificial"
                 className="h-20 w-20 sm:h-24 sm:w-24 rounded-2xl object-cover shadow-md ring-1 ring-black/10 lg:hidden"
                 width="96"
                 height="96"
@@ -53,7 +46,7 @@ export default function Hero() {
               transition={{ delay: 0.05 }}
               className="heading-xl text-[2.1rem] sm:text-5xl md:text-[3.2rem] mb-4 sm:mb-5"
             >
-              Consultoria, treinamento e palestra de IA.
+              Consultoria, treinamento e palestra.
               <br />
               <span className="accent-text">Método real na operação.</span>
             </motion.h1>
@@ -65,8 +58,7 @@ export default function Hero() {
               className="lead mb-6 mx-auto lg:mx-0 text-[1.05rem]"
             >
               Ensinamos e estruturamos o time para usar inteligência artificial com
-              padrão e segurança — e fazemos desenvolvimento com IA quando a operação
-              precisa de sistema, automação ou ferramenta sob medida.
+              padrão e segurança. Quando a operação precisa, desenvolvemos sistema, automação ou ferramenta com IA sob medida.
             </motion.p>
 
             <motion.div
@@ -76,7 +68,7 @@ export default function Hero() {
               className="mb-7"
             >
               <p className="text-xs font-bold uppercase tracking-wider text-mute mb-2.5">
-                Serviços de IA
+                Soluções
               </p>
               <div className="flex flex-wrap justify-center lg:justify-start gap-2">
                 {OFFERINGS.map((name) => (
@@ -103,7 +95,7 @@ export default function Hero() {
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a href="#servicos" className="btn btn-secondary w-full sm:w-auto">
-                Ver serviços de IA
+                Ver soluções
               </a>
             </motion.div>
 
@@ -131,7 +123,7 @@ export default function Hero() {
             <div className="surface overflow-hidden p-2 sm:p-2.5">
               <img
                 src="/lucas-hero.jpg"
-                alt="Lucas Charão — consultoria de IA, treinamento de IA e palestras de inteligência artificial para empresas"
+                alt="Lucas Charão: consultoria de IA, treinamento de IA e palestras de inteligência artificial para empresas"
                 width="480"
                 height="720"
                 className="w-full aspect-[4/5] object-cover object-top rounded-[1.1rem]"

@@ -2,36 +2,16 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Plus } from 'lucide-react'
 
-/** FAQ otimizado para SEO + AEO (Answer Engine): perguntas como as pessoas buscam no Google. */
+/** FAQ para SEO e AEO: perguntas no formato das buscas reais. */
 const faqs = [
   {
-    q: 'O que é consultoria de IA e como vocês trabalham?',
-    a: 'Consultoria de IA é o diagnóstico e o desenho do caminho para a sua empresa usar inteligência artificial com método: o que priorizar, como o time deve trabalhar com padrão e segurança, e onde a IA gera ganho real na operação. Olhamos o negócio setor por setor — sem hype e sem pacote genérico.',
-  },
-  {
-    q: 'Vocês oferecem treinamento de IA e curso de IA para equipes?',
-    a: 'Sim. Treinamento de IA e curso prático de inteligência artificial no contexto real da empresa. A equipe aprende nas tarefas que já executa, com padrão, qualidade e segurança — não é curso teórico de ferramenta genérica.',
-  },
-  {
-    q: 'Fazem palestra de IA ou palestra com IA para eventos?',
-    a: 'Sim. Palestra de IA sob medida para convenções, eventos, imersões de liderança e encontros corporativos. O conteúdo alinha a empresa e mostra o que o time pode fazer diferente com inteligência artificial no trabalho.',
-  },
-  {
-    q: 'O que inclui desenvolvimento com IA?',
-    a: 'Sistemas, painéis, aplicações web e automações sob medida que usam inteligência artificial no processo. Menos trabalho manual, mais visibilidade para a gestão e ferramentas encaixadas na rotina real da operação. O ensino ao time fica na consultoria, mentoria e treinamento; o desenvolvimento entrega a ferramenta.',
-  },
-  {
-    q: 'Quais serviços de IA a IAX LAB oferece?',
-    a: 'Cinco formatos: consultoria de IA, mentoria em IA, treinamento e curso de IA para equipe, palestra de IA e desenvolvimento com IA (sistemas, painéis e automações sob medida).',
-  },
-  {
-    q: 'Atendem empresas de qualquer lugar do Brasil?',
-    a: 'Sim. Consultoria de IA, treinamento, palestra e projetos de desenvolvimento com IA no formato presencial ou remoto, conforme a necessidade da empresa.',
-  },
-  {
-    q: 'Como começar sem compromisso?',
-    a: 'Chame no WhatsApp. Em cerca de 30 minutos alinhamos o que priorizar e qual serviço faz mais sentido — consultoria de IA, curso, palestra ou desenvolvimento com IA — sem pressão e sem pacote genérico.',
-  },
+    q: 'O que é consultoria de IA e como vocês trabalham?', a: 'Consultoria de IA é o diagnóstico e o desenho do caminho para a sua empresa usar inteligência artificial com método: o que priorizar, como o time deve trabalhar com padrão e segurança, e onde a IA gera ganho real na operação. Olhamos o negócio setor por setor, sem pacote genérico.', }, {
+    q: 'Vocês oferecem treinamento de IA e curso de IA para equipes?', a: 'Sim. Treinamento de IA e curso prático no contexto real da empresa. A equipe aprende nas tarefas que já executa, com padrão, qualidade e segurança. Não é curso teórico de ferramenta.', }, {
+    q: 'Fazem palestra de IA ou palestra com IA para eventos?', a: 'Sim. Palestra de IA sob medida para convenções, eventos, imersões de liderança e encontros corporativos. O conteúdo alinha a empresa e mostra o que o time pode fazer diferente com inteligência artificial no trabalho.', }, {
+    q: 'O que inclui desenvolvimento com IA?', a: 'Sistemas, painéis, aplicações web e automações sob medida que usam inteligência artificial no processo. Menos trabalho manual, mais visibilidade para a gestão e ferramentas encaixadas na rotina real. O ensino ao time fica na consultoria, mentoria e treinamento; o desenvolvimento entrega a ferramenta.', }, {
+    q: 'Quais soluções a IAX LAB oferece?', a: 'Cinco formatos: consultoria, mentoria, treinamento e curso para equipe, palestra e desenvolvimento (sistemas, painéis e automações sob medida).', }, {
+    q: 'Atendem empresas de qualquer lugar do Brasil?', a: 'Sim. Consultoria de IA, treinamento, palestra e projetos de desenvolvimento com IA no formato presencial ou remoto, conforme a necessidade da empresa.', }, {
+    q: 'Como começar sem compromisso?', a: 'Chame no WhatsApp. Em cerca de 30 minutos alinhamos o que priorizar e qual serviço faz mais sentido: consultoria de IA, curso, palestra ou desenvolvimento com IA. Sem pressão e sem pacote genérico.', },
 ]
 
 export default function FAQ() {
@@ -48,8 +28,8 @@ export default function FAQ() {
         >
           <p className="eyebrow">Dúvidas sobre IA</p>
           <h2 className="heading-lg text-[1.75rem] sm:text-3xl md:text-5xl">
-            Consultoria, curso, palestra e desenvolvimento com IA —{' '}
-            <span className="accent-text">a gente explica.</span>
+            Consultoria, curso, palestra e desenvolvimento.{' '}
+            <span className="accent-text">A gente explica.</span>
           </h2>
         </motion.div>
 

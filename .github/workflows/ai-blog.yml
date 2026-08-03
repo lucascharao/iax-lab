@@ -1,15 +1,13 @@
-# Blog IA — publica 1 notícia às 07:30 e 18:00 (America/Sao_Paulo)
-# Requer secret: XAI_API_KEY
-# Opcional: GH_PAT com permissão de contents:write se o token padrão não puder push
+# DESATIVADO: GitHub schedule NÃO é pontual o bastante.
+# A automação do Blog IA roda no VPS via cron (e opcionalmente n8n).
+# Ver: scripts/blog-cron.sh e docs/blog-ia-automacao.md
+#
+# Para teste manual no GitHub (não publica no ar sozinho):
+# use workflow_dispatch e depois faça deploy no servidor.
 
-name: Blog IA — notícia diária
+name: Blog IA (manual only — prefer VPS cron)
 
 on:
-  schedule:
-    # 07:30 BRT = 10:30 UTC
-    - cron: '30 10 * * *'
-    # 18:00 BRT = 21:00 UTC
-    - cron: '0 21 * * *'
   workflow_dispatch:
     inputs:
       slot:
@@ -24,45 +22,25 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
-
-      - name: Detect slot
-        id: slot
-        run: |
-          # cron github: 10:30 UTC = morning, 21:00 UTC = evening
-          H=$(date -u +%H%M)
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "name=${{ github.event.inputs.slot || 'manual' }}" >> $GITHUB_OUTPUT
-          elif [ "$H" = "1030" ] || [ "$H" -ge 1000 -a "$H" -lt 1200 ]; then
-            echo "name=morning" >> $GITHUB_OUTPUT
-          else
-            echo "name=evening" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Publish AI news
+      - name: Publish AI news (repo only)
         env:
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
-          SLOT: ${{ steps.slot.outputs.name }}
-          XAI_MODEL: ${{ vars.XAI_MODEL || 'grok-4.3' }}
-          XAI_IMAGE_MODEL: ${{ vars.XAI_IMAGE_MODEL || 'grok-imagine-image' }}
+          SLOT: ${{ github.event.inputs.slot || 'manual' }}
+          XAI_MODEL: grok-4.3
+          XAI_IMAGE_MODEL: grok-imagine-image
         run: node scripts/publish-ai-news.mjs
-
-      - name: Commit & push if changed
+      - name: Commit if changed
         run: |
           git config user.name "iax-blog-bot"
           git config user.email "blog-bot@iaxlab.top"
           git add public/blog
           if git diff --staged --quiet; then
-            echo "Nenhuma mudança para commit"
+            echo "Nenhuma mudança"
             exit 0
           fi
-          git commit -m "blog(ia): notícia automática ${{ steps.slot.outputs.name }} $(date -u +%Y-%m-%d)"
+          git commit -m "blog(ia): notícia manual $(date -u +%Y-%m-%d)"
           git push

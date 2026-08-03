@@ -5,61 +5,41 @@ import * as THREE from 'three'
 import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeometry.js'
 
 /**
- * Réplica 3D do mascote IAX: corpo toy branco, cabeça com anel verde neon,
- * tela preta com olhos que piscam. Cabeça+olhos seguem o mouse; flutuação
+ * Réplica 3D do mascote IAX: corpo toy branco, cabeça com anel verde neon, * tela preta com olhos que piscam. Cabeça+olhos seguem o mouse; flutuação
  * idle; rotação de corpo controlada pelo scroll (via prop progressRef).
- * Geometrias: RoundedBoxGeometry oficial do three (robusta) — a RoundedBox
+ * Geometrias: RoundedBoxGeometry oficial do three (robusta)  -  a RoundedBox
  * do drei (extrude) gerava NaN com radius próximo de depth/2 e derrubava a GPU.
  */
 
 const NEON = '#22e58c'
 
 type RobotProps = {
-  /** 0..1 — progresso do scroll do hero (escrito pelo ScrollTrigger fora do canvas) */
+  /** 0..1  -  progresso do scroll do hero (escrito pelo ScrollTrigger fora do canvas) */
   progressRef: { current: number }
 }
 
 function useAssets() {
   return useMemo(() => {
     const white = new THREE.MeshStandardMaterial({
-      color: '#e9edeb',
-      roughness: 0.35,
-      metalness: 0.05,
-    })
+      color: '#e9edeb', roughness: 0.35, metalness: 0.05, })
     const dark = new THREE.MeshStandardMaterial({ color: '#101314', roughness: 0.5, metalness: 0.3 })
     const screen = new THREE.MeshStandardMaterial({ color: '#070a0b', roughness: 0.15, metalness: 0.1 })
     const neonRing = new THREE.MeshStandardMaterial({
-      color: NEON,
-      emissive: NEON,
-      emissiveIntensity: 1.6,
-      toneMapped: false,
-    })
+      color: NEON, emissive: NEON, emissiveIntensity: 1.6, toneMapped: false, })
     const eye = new THREE.MeshStandardMaterial({
-      color: '#ffffff',
-      emissive: '#e8fff4',
-      emissiveIntensity: 1.5,
-      toneMapped: false,
-    })
+      color: '#ffffff', emissive: '#e8fff4', emissiveIntensity: 1.5, toneMapped: false, })
 
     const rb = (w: number, h: number, d: number, r: number) =>
       new RoundedBoxGeometry(w, h, d, 5, Math.min(r, w / 2, h / 2, d / 2))
 
     const geo = {
-      body: rb(1.15, 1.1, 0.78, 0.28),
-      head: rb(1.42, 1.08, 0.9, 0.3),
-      ring: rb(1.16, 0.84, 0.34, 0.17),
-      screen: rb(1.0, 0.68, 0.3, 0.14),
-      armUpper: rb(0.2, 0.42, 0.2, 0.09),
-      armLower: rb(0.18, 0.3, 0.18, 0.08),
-      leg: rb(0.24, 0.34, 0.24, 0.1),
-      foot: rb(0.3, 0.16, 0.4, 0.07),
-    }
+      body: rb(1.15, 1.1, 0.78, 0.28), head: rb(1.42, 1.08, 0.9, 0.3), ring: rb(1.16, 0.84, 0.34, 0.17), screen: rb(1.0, 0.68, 0.3, 0.14), armUpper: rb(0.2, 0.42, 0.2, 0.09), armLower: rb(0.18, 0.3, 0.18, 0.08), leg: rb(0.24, 0.34, 0.24, 0.1), foot: rb(0.3, 0.16, 0.4, 0.07), }
     return { m: { white, dark, screen, neonRing, eye }, geo }
   }, [])
 }
 
 function ChestLogo() {
-  // PNG já cropado no arquivo (291×432, sem padding) — textura usada sem mutação
+  // PNG já cropado no arquivo (291×432, sem padding)  -  textura usada sem mutação
   const logo = useTexture('/logo-chest.png', (t) => {
     t.colorSpace = THREE.SRGBColorSpace
   })
@@ -88,7 +68,7 @@ function Robot({ progressRef, coarse }: RobotProps & { coarse: boolean }) {
     const t = clock.elapsedTime
     const p = progressRef.current
 
-    // touch (sem mouse): "ponteiro virtual" derivado do progresso do scroll —
+    // touch (sem mouse): "ponteiro virtual" derivado do progresso do scroll  -
     // cabeça e olhos varrem a cena conforme a página rola
     const px = coarse ? Math.sin(p * Math.PI * 2.5) * 0.7 : pointer.x
     const py = coarse ? -0.15 + Math.sin(p * Math.PI * 1.5) * 0.3 : pointer.y
@@ -180,7 +160,7 @@ function Robot({ progressRef, coarse }: RobotProps & { coarse: boolean }) {
         <mesh geometry={geo.ring} material={m.neonRing} position={[0, 0, 0.32]} />
         {/* tela preta */}
         <mesh geometry={geo.screen} material={m.screen} position={[0, 0, 0.38]} />
-        {/* olhos — esferas achatadas em Z; blink escala o Y */}
+        {/* olhos  -  esferas achatadas em Z; blink escala o Y */}
         <group ref={eyes} position={[0, 0.02, 0.56]}>
           <mesh ref={eyeL} material={m.eye} position={[-0.2, 0, 0]} scale={[1, 1, 0.3]}>
             <sphereGeometry args={[0.08, 20, 20]} />
@@ -202,18 +182,15 @@ export default function RobotIAX({ progressRef, onContextLost }: RobotProps & { 
       camera={{ position: [0.4, 0.5, 4.6], fov: 38 }}
       dpr={[1, coarse ? 1.5 : 2]}
       // powerPreference 'default': iOS em Modo de Baixa Energia rejeita/perde
-      // contextos 'high-performance' (default do R3F) — robô sumia no iPhone
+      // contextos 'high-performance' (default do R3F)  -  robô sumia no iPhone
       gl={{ antialias: !coarse, alpha: true, powerPreference: 'default', failIfMajorPerformanceCaveat: false }}
       style={{ background: 'transparent' }}
       onCreated={({ gl }) => {
         gl.domElement.addEventListener(
-          'webglcontextlost',
-          (e) => {
+          'webglcontextlost', (e) => {
             e.preventDefault()
             onContextLost?.()
-          },
-          { once: true },
-        )
+          }, { once: true }, )
       }}
     >
       <ambientLight intensity={0.35} />

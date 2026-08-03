@@ -33,3 +33,4 @@ dist.nosync
 
 # instalador de skills
 .claude/skills
+.ssr/

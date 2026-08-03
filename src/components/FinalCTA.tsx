@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-
-const WA = 'https://wa.me/5551991882447'
+import { WA } from '../lib/whatsapp'
 
 export default function FinalCTA() {
   return (
@@ -17,12 +16,12 @@ export default function FinalCTA() {
             Próximo passo
           </p>
           <h2 className="font-display text-[1.65rem] sm:text-4xl md:text-5xl font-semibold tracking-tight leading-[1.15] text-white mb-4 sm:mb-5 max-w-3xl mx-auto">
-            Consultoria de IA, curso, palestra ou desenvolvimento com IA —{' '}
-            <span className="text-emerald-300">começa na próxima conversa.</span>
+            Consultoria, curso, palestra ou desenvolvimento.{' '}
+            <span className="text-emerald-300">Começa na próxima conversa.</span>
           </h2>
           <p className="text-emerald-50/80 text-base sm:text-lg max-w-xl mx-auto mb-8 leading-relaxed">
             Em cerca de 30 minutos você sai com clareza do que priorizar em inteligência
-            artificial e qual serviço faz sentido — sem compromisso.
+            artificial e qual serviço faz sentido. Sem compromisso.
           </p>
           <a
             href={WA}

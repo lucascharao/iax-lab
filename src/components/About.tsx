@@ -1,10 +1,9 @@
 import { motion } from 'framer-motion'
 import Parallax from './Parallax'
+import { WA } from '../lib/whatsapp'
 
 const outcomes = [
-  ['Método na ponta', 'Sua equipe deixa de “inventar o jeito” e passa a usar IA com padrão, segurança e qualidade.'],
-  ['Aplicação no processo real', 'Você não leva slide genérico: leva IA encaixada nas tarefas e nos setores que realmente importam.'],
-  ['Resultado que se sustenta', 'Capacitação, diagnóstico ou sistema — o objetivo é o ganho continuar depois do primeiro impulso.'],
+  ['Método na ponta', 'Sua equipe deixa de “inventar o jeito” e passa a usar IA com padrão, segurança e qualidade.'], ['Aplicação no processo real', 'Você não leva slide genérico: leva IA encaixada nas tarefas e nos setores que realmente importam.'], ['Resultado que se sustenta', 'Capacitação, diagnóstico ou sistema, o objetivo é o ganho continuar depois do primeiro impulso.'],
 ]
 
 function LinkedinIcon({ className }: { className?: string }) {
@@ -36,14 +35,14 @@ export default function About() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7 }}
         >
-          <p className="hud !text-neon mb-4">[ 04 ] — O que muda para você</p>
+          <p className="hud !text-neon mb-4">[ 04 ] O que muda para você</p>
           <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight leading-tight">
-            Você não compra hype. <span className="boxed boxed-neon text-neon">Leva aplicação.</span>
+            Você não compra moda. <span className="boxed boxed-neon text-neon">Leva aplicação.</span>
           </h2>
           <div className="mt-6 space-y-5 text-mist text-lg leading-relaxed">
             <p>
               O foco é o seu resultado: equipe mais rápida, processos mais leves e IA no
-              lugar certo da operação — sem promessa vazia e sem teoria que não cola na
+              lugar certo da operação, sem promessa vazia e sem teoria que não cola na
               rotina.
             </p>
             <p>
@@ -65,7 +64,7 @@ export default function About() {
             ))}
           </div>
           <a
-            href="https://wa.me/5551991882447"
+            href={WA}
             target="_blank"
             rel="noopener noreferrer"
             className="hud inline-block mt-10 border border-neon/60 !text-neon px-6 py-3 hover:bg-neon hover:!text-void transition-colors"
@@ -88,7 +87,7 @@ export default function About() {
             </div>
             <img
               src="/lucas.webp"
-              alt="Lucas Charão — ajuda empresas a aplicar IA com método na operação"
+              alt="Lucas Charão, ajuda empresas a aplicar IA com método na operação"
               width="480"
               height="600"
               className="w-full h-auto object-cover aspect-[4/5] grayscale-[25%] contrast-105"

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { WA } from '../lib/whatsapp'
 
 const pains = [
   {
@@ -14,8 +15,6 @@ const pains = [
     text: 'Empresas com consultoria, treinamento de IA e processo claro entregam em horas o que ainda leva dias na operação solta.',
   },
 ]
-
-const WA = 'https://wa.me/5551991882447'
 
 export default function Problem() {
   return (
@@ -34,8 +33,7 @@ export default function Problem() {
           </h2>
           <p className="lead">
             Quando o uso de IA é improvisado, você paga em retrabalho, inconsistência,
-            risco de dados e oportunidade perdida — enquanto o concorrente com método
-            acelera.
+            risco de dados e oportunidade perdida. Quem tem método acelera.
           </p>
         </motion.div>
 

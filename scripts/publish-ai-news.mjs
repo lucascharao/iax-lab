@@ -60,7 +60,7 @@ function normalizeUrl(url) {
   try {
     const u = new URL(url)
     u.hash = ''
-    // Google News redirect wrappers
+    // Google News redirect wrappers with ?url=
     if (u.hostname.includes('news.google.com')) {
       const real = u.searchParams.get('url')
       if (real) return normalizeUrl(real)
@@ -73,6 +73,91 @@ function normalizeUrl(url) {
   } catch {
     return url.trim()
   }
+}
+
+function isGoogleNewsArticleUrl(url) {
+  try {
+    const u = new URL(url)
+    return (
+      u.hostname.includes('news.google.com') &&
+      (u.pathname.includes('/articles/') || u.pathname.includes('/read/'))
+    )
+  } catch {
+    return false
+  }
+}
+
+/**
+ * Resolve Google News RSS wrapper -> URL real do publisher.
+ * (mesma abordagem do pacote google-news-url-decoder)
+ */
+async function resolveGoogleNewsUrl(sourceUrl) {
+  if (!isGoogleNewsArticleUrl(sourceUrl)) return normalizeUrl(sourceUrl)
+
+  const base64Str = sourceUrl.split('/').pop().split('?')[0]
+  const pageUrl = `https://news.google.com/rss/articles/${base64Str}`
+
+  const pageRes = await fetch(pageUrl, {
+    headers: {
+      'User-Agent':
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36',
+      Accept: 'text/html,application/xhtml+xml',
+      'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8',
+    },
+  })
+  if (!pageRes.ok) throw new Error(`gnews page HTTP ${pageRes.status}`)
+  const html = await pageRes.text()
+  const signature = html.match(/data-n-a-sg="([^"]+)"/)?.[1]
+  const timestamp = html.match(/data-n-a-ts="([^"]+)"/)?.[1]
+  if (!signature || !timestamp) throw new Error('gnews: signature/timestamp ausentes')
+
+  const payload = [
+    'Fbv4je',
+    `["garturlreq",[["X","X",["X","X"],null,null,1,1,"US:en",null,1,null,null,null,null,null,0,1],"X","X",1,[1,1,1],1,1,null,0,0,null,0],"${base64Str}",${timestamp},"${signature}"]`,
+  ]
+  const body = `f.req=${encodeURIComponent(JSON.stringify([[payload]]))}`
+
+  const apiRes = await fetch('https://news.google.com/_/DotsSplashUi/data/batchexecute', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+      'User-Agent':
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36',
+      Origin: 'https://news.google.com',
+      Referer: 'https://news.google.com/',
+    },
+    body,
+  })
+  if (!apiRes.ok) throw new Error(`gnews batchexecute HTTP ${apiRes.status}`)
+  const text = await apiRes.text()
+  const parts = text.split('\n\n')
+  if (parts.length < 2) throw new Error('gnews: formato batchexecute inesperado')
+
+  const parsed = JSON.parse(parts[1])
+  const batch = parsed.filter(
+    (d) => (d[0] === 'wrb.fr' || d[0] === 'w779db') && d[1] === 'Fbv4je',
+  )
+  const innerStr = batch[0]?.[2] ?? parsed[0]?.[2]
+  if (!innerStr) throw new Error('gnews: resposta sem URL')
+  const inner = JSON.parse(innerStr)
+  const decoded = inner[1]
+  if (typeof decoded !== 'string' || !decoded.startsWith('http')) {
+    throw new Error('gnews: URL decodificada inválida')
+  }
+  return normalizeUrl(decoded)
+}
+
+async function resolveArticleUrl(url) {
+  try {
+    if (isGoogleNewsArticleUrl(url)) {
+      const real = await resolveGoogleNewsUrl(url)
+      log('fonte resolvida', real)
+      return real
+    }
+  } catch (err) {
+    log('WARN: falha ao resolver Google News', String(err.message || err))
+  }
+  return normalizeUrl(url)
 }
 
 function slugify(text) {
@@ -110,15 +195,19 @@ function parseRssItems(xml) {
       link = block.match(/<guid[^>]*>([\s\S]*?)<\/guid>/i)?.[1] || ''
     }
     const pubDate = (block.match(/<pubDate[^>]*>([\s\S]*?)<\/pubDate>/i)?.[1] || '').trim()
-    const source =
+    const sourceName =
       decodeXml((block.match(/<source[^>]*>([\s\S]*?)<\/source>/i)?.[1] || '').trim()) ||
       undefined
+    const sourceHome =
+      block.match(/<source[^>]+url="([^"]+)"/i)?.[1] || undefined
     if (title && link) {
       items.push({
         title: title.replace(/\s+/g, ' ').trim(),
-        url: normalizeUrl(link),
+        // URL ainda pode ser wrapper Google News; resolvemos depois
+        url: link.trim(),
         publishedAt: pubDate ? new Date(pubDate).toISOString() : new Date().toISOString(),
-        publisher: source,
+        publisher: sourceName,
+        sourceHome,
       })
     }
   }
@@ -205,20 +294,25 @@ async function collectCandidates(index) {
 
 async function generateArticle(item) {
   if (!XAI_API_KEY) {
-    // fallback sem API — ainda publica um post editorial mínimo
-    log('WARN: XAI_API_KEY ausente — usando template sem LLM')
+    // fallback sem API: coluna curta
+    log('WARN: XAI_API_KEY ausente: usando template sem LLM')
     return {
       title: item.title,
-      excerpt: `Resumo da notícia de IA: ${item.title}. Confira a fonte original para detalhes completos.`,
+      excerpt: `Coluna do Blog IA: o que a notícia “${item.title.slice(0, 80)}…” muda para quem lidera empresa no Brasil.`,
       body: [
-        `## O que aconteceu`,
+        `Quando uma notícia de inteligência artificial aparece, o empresário costuma reagir em dois extremos: ignora ou compra a moda sem método. Esta coluna lê o fato com frieza e traduz em decisão de operação.`,
+        ``,
+        `## O que a notícia diz`,
         `${item.title}.`,
         ``,
-        `## Por que importa`,
-        `Notícias de inteligência artificial impactam empresas, times e produtos. Vale acompanhar a fonte original e avaliar o que se aplica à sua operação.`,
+        `## Por que isso importa na operação`,
+        `IA gera valor quando encaixa em processo real: contrato, atendimento, vendas, backoffice, produto. Sem padrão, segurança e dono da rotina, a ferramenta vira slide ou risco. O ponto não é “usar IA”. É **onde** a IA reduz custo, tempo e erro.`,
         ``,
-        `## Próximo passo`,
-        `Na IAX LAB ajudamos empresas com consultoria de IA, treinamento, palestra e desenvolvimento com IA — com método, não hype.`,
+        `## O que eu olharia se fosse o dono da empresa`,
+        `- Qual tarefa repetitiva isso ataca?\n- Quem no time opera com método?\n- Que dado sensível entra no fluxo?\n- Como medir ganho em 30 dias?`,
+        ``,
+        `## Fechamento`,
+        `Acompanhe a fonte original. Se fizer sentido para o seu negócio, estruture uso com consultoria, treinamento ou desenvolvimento com IA. Na IAX LAB o foco é aplicação com método, não moda.`,
       ].join('\n'),
       sources: [
         {
@@ -227,32 +321,43 @@ async function generateArticle(item) {
           publisher: item.publisher || 'Fonte original',
         },
       ],
-      tags: ['IA', 'notícias', SLOT].filter(Boolean),
+      tags: ['IA', 'coluna', 'notícias', SLOT].filter(Boolean),
       imagePrompt: `Wide cinematic horizontal cover 16:9 about artificial intelligence news: ${item.title}. Modern tech aesthetic, green neon accents, abstract neural network, no text, no logos, photorealistic editorial style.`,
     }
   }
 
-  const system = `Você é editor do Blog IA da IAX LAB (Brasil). Escreva em português brasileiro claro, profissional e acessível a donos de empresa.
-Regras:
-- Nunca invente fatos que não estejam no título/contexto da notícia.
-- Sempre cite a fonte com link.
-- Formato de resposta: JSON válido único (sem markdown fence).
-- body em markdown simples: parágrafos, ## subtítulos, **negrito**, links [texto](url).
-- 4–7 parágrafos no body + 2–3 subtítulos.
-- excerpt com no máximo 220 caracteres.
-- imagePrompt em inglês, capa horizontal 16:9, SEM texto na imagem, estética tech editorial.`
+  const system = `Você é colunista especialista em inteligência artificial da IAX LAB (Brasil).
+Escreva como humano que fala com dono de empresa: claro, direto, opinião fundamentada.
+Produza COLUNA completa (resenha + análise + o que fazer na operação), não resumo.
 
-  const user = `Notícia a cobrir:
+PROIBIDO (vícios de texto de IA):
+- Travessão (—) e meia-risca (–). Use ponto, vírgula, dois-pontos ou parênteses.
+- Frases de preenchimento: "é importante notar", "vale ressaltar", "em suma", "além disso", "no entanto", "por outro lado", "ainda assim", "em essência", "no final do dia", "neste cenário", "no cenário atual", "cada vez mais", "não se trata apenas", "isso nos leva a".
+- Tom de brochure: "hype", "solução robusta", "ecossistema", "jornada", "empoderar", "revolucionar", "transformador", "sem costura", "cutting-edge".
+- Listas ternárias forçadas do tipo "seja X, Y ou Z" e "não é só X, é também Y" em excesso.
+
+REGRAS:
+- Português brasileiro natural, como conversa séria de consultor.
+- Não invente números, clientes ou fatos fora do título/contexto.
+- body em markdown: parágrafos longos, ## subtítulos, **negrito**, listas com "- ".
+- 900 a 1400 palavras no body.
+- Subtítulos úteis (fatos, leitura, Brasil, riscos, como aplicar, fechamento).
+- excerpt: até 240 caracteres, sem travessão.
+- imagePrompt em inglês, capa 16:9, sem texto na imagem.
+- JSON válido único, sem fence markdown.`
+
+  const user = `Escreva a coluna do Blog IA sobre esta notícia:
+
 Título: ${item.title}
 URL: ${item.url}
 Publisher: ${item.publisher || 'desconhecido'}
 Data da fonte: ${item.publishedAt}
 
-Retorne JSON com:
+Retorne JSON:
 {
-  "title": "título editorial em PT-BR (pode reescrever levemente)",
-  "excerpt": "resumo curto",
-  "body": "markdown do artigo",
+  "title": "título editorial forte em PT-BR (pode reescrever)",
+  "excerpt": "olho da coluna, curto",
+  "body": "markdown longo da coluna (900-1400 palavras)",
   "sources": [{"title":"...","url":"...","publisher":"..."}],
   "tags": ["IA", "..."],
   "imagePrompt": "english prompt for horizontal 16:9 cover, no text"
@@ -266,7 +371,9 @@ Retorne JSON com:
     },
     body: JSON.stringify({
       model: process.env.XAI_MODEL || 'grok-4.3',
-      temperature: 0.4,
+      temperature: 0.55,
+      // colunas longas precisam de mais tokens de saída
+      max_tokens: 4500,
       messages: [
         { role: 'system', content: system },
         { role: 'user', content: user },
@@ -289,14 +396,27 @@ Retorne JSON com:
     throw new Error(`Falha ao parsear JSON do modelo: ${raw.slice(0, 300)}`)
   }
 
-  // ensure source link
-  const sources = Array.isArray(parsed.sources) ? parsed.sources : []
-  if (!sources.some((s) => s.url === item.url)) {
-    sources.unshift({
+  // Fonte canônica: sempre a URL real já resolvida (nunca Google News wrapper)
+  const sources = [
+    {
       title: item.title,
       url: item.url,
       publisher: item.publisher || 'Fonte original',
-    })
+    },
+  ]
+  // extras do modelo, se forem http e não google news
+  if (Array.isArray(parsed.sources)) {
+    for (const s of parsed.sources) {
+      const u = String(s?.url || '')
+      if (!u.startsWith('http')) continue
+      if (u.includes('news.google.com')) continue
+      if (sources.some((x) => x.url === u)) continue
+      sources.push({
+        title: String(s.title || item.title),
+        url: u,
+        publisher: s.publisher ? String(s.publisher) : undefined,
+      })
+    }
   }
 
   return {
@@ -462,8 +582,21 @@ async function main() {
     process.exit(0)
   }
 
-  const item = candidates[0]
+  const raw = candidates[0]
+  // Resolve wrapper Google News -> URL real do publisher
+  const resolvedUrl = await resolveArticleUrl(raw.url)
+  const item = {
+    ...raw,
+    url: resolvedUrl,
+    googleNewsUrl: isGoogleNewsArticleUrl(raw.url) ? raw.url : undefined,
+  }
   log('escolhida', item.title, item.url)
+
+  // Recusa publicar se ainda for link morto do Google News
+  if (isGoogleNewsArticleUrl(item.url)) {
+    log('FATAL: não conseguiu resolver fonte real; abortando para não publicar link quebrado')
+    process.exit(1)
+  }
 
   const article = await generateArticle(item)
   const baseSlug = slugify(article.title) || `ia-${item.fingerprint.slice(0, 8)}`

@@ -1,26 +1,14 @@
 import { motion } from 'framer-motion'
-
-const WA = 'https://wa.me/5551991882447'
+import { WA } from '../lib/whatsapp'
 
 const steps = [
   {
-    n: '1',
-    title: 'Você mostra a operação',
-    description:
-      'Entendemos o negócio, os gargalos e onde consultoria de IA, treinamento ou desenvolvimento com IA geram ganho real.',
-  },
-  {
-    n: '2',
-    title: 'Você recebe o caminho certo',
-    description:
-      'Fica claro o formato: consultoria de IA, mentoria, curso, palestra de IA, desenvolvimento com IA — ou a combinação ideal.',
-  },
-  {
-    n: '3',
-    title: 'A IA entra na rotina',
-    description:
-      'O time aprende e aplica inteligência artificial no processo real. Quando precisa de ferramenta, o sistema com IA entra no fluxo do dia a dia.',
-  },
+    n: '1', title: 'Você mostra a operação', description:
+      'Entendemos o negócio, os gargalos e onde consultoria de IA, treinamento ou desenvolvimento com IA geram ganho real.', }, {
+    n: '2', title: 'Você recebe o caminho certo', description:
+      'Fica claro o formato: consultoria de IA, mentoria, curso, palestra de IA, desenvolvimento com IA ou a combinação ideal.', }, {
+    n: '3', title: 'A IA entra na rotina', description:
+      'O time aprende e aplica inteligência artificial no processo real. Quando precisa de ferramenta, o sistema com IA entra no fluxo do dia a dia.', },
 ]
 
 export default function HowItWorks() {
@@ -35,7 +23,7 @@ export default function HowItWorks() {
         >
           <p className="eyebrow">Como funciona</p>
           <h2 className="heading-lg text-[1.75rem] sm:text-3xl md:text-5xl">
-            Da conversa à IA na rotina —{' '}
+            Da conversa à IA na rotina,{' '}
             <span className="accent-text">em 3 passos.</span>
           </h2>
         </motion.div>
