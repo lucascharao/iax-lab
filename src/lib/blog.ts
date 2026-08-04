@@ -37,6 +37,7 @@ export function renderSimpleMarkdown(md: string): string {
   const blocks: string[] = []
   let para: string[] = []
   let list: string[] = []
+  let listType: 'ul' | 'ol' | null = null
 
   const inline = (s: string) => {
     let t = escape(s)
@@ -56,8 +57,16 @@ export function renderSimpleMarkdown(md: string): string {
 
   const flushList = () => {
     if (!list.length) return
-    blocks.push(`<ul>${list.map((li) => `<li>${inline(li)}</li>`).join('')}</ul>`)
+    const tag = listType ?? 'ul'
+    blocks.push(`<${tag}>${list.map((li) => `<li>${inline(li)}</li>`).join('')}</${tag}>`)
     list = []
+    listType = null
+  }
+
+  const addListItem = (type: 'ul' | 'ol', item: string) => {
+    if (listType && listType !== type) flushList()
+    listType = type
+    list.push(item)
   }
 
   for (const raw of lines) {
@@ -67,28 +76,24 @@ export function renderSimpleMarkdown(md: string): string {
       flushList()
       continue
     }
-    if (line.startsWith('## ')) {
+    const heading = line.match(/^(#{1,6})\s+(.+)$/)
+    if (heading) {
       flushPara()
       flushList()
-      blocks.push(`<h2>${inline(line.slice(3).trim())}</h2>`)
-      continue
-    }
-    if (line.startsWith('# ')) {
-      flushPara()
-      flushList()
-      blocks.push(`<h2>${inline(line.slice(2).trim())}</h2>`)
+      const level = heading[1].length
+      blocks.push(`<h${level}>${inline(heading[2].trim())}</h${level}>`)
       continue
     }
     if (line.startsWith('- ') || line.startsWith('* ')) {
       flushPara()
-      list.push(line.slice(2).trim())
+      addListItem('ul', line.slice(2).trim())
       continue
     }
     // numbered list "1. item"
     const num = line.match(/^\d+\.\s+(.+)$/)
     if (num) {
       flushPara()
-      list.push(num[1].trim())
+      addListItem('ol', num[1].trim())
       continue
     }
     flushList()
