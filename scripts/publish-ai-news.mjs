@@ -35,6 +35,9 @@ const COVERS_DIR = join(BLOG_DIR, 'covers')
 const XAI_API_KEY = process.env.XAI_API_KEY || ''
 const DRY_RUN = process.env.DRY_RUN === '1' || process.env.DRY_RUN === 'true'
 const SLOT = process.env.SLOT || ''
+const MIN_ARTICLE_WORDS = 900
+const MIN_ARTICLE_SECTIONS = 5
+const MIN_ARTICLE_PARAGRAPHS = 8
 
 const RSS_FEEDS = [
   // Google News — IA (PT-BR)
@@ -181,6 +184,46 @@ function decodeXml(s) {
     .replace(/&apos;/g, "'")
 }
 
+export function countMarkdownWords(markdown) {
+  return String(markdown)
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/!?(?:\[[^\]]*\]\([^)]*\))/g, ' ')
+    .replace(/[`*_>#~|]/g, ' ')
+    .match(/[\p{L}\p{N}]+(?:['’\p{L}\p{N}-][\p{L}\p{N}]+)*/gu)?.length || 0
+}
+
+export function validateArticle(article) {
+  const body = String(article.body || '').trim()
+  const wordCount = countMarkdownWords(body)
+  const sections = (body.match(/^##\s+\S.+$/gm) || []).length
+  const paragraphs = body
+    .split(/\n\s*\n/)
+    .filter((block) => !/^(#{1,6}\s|[-*+]\s|\d+\.\s)/.test(block.trim()))
+    .filter((block) => countMarkdownWords(block) >= 25).length
+
+  if (wordCount < MIN_ARTICLE_WORDS) {
+    throw new Error(
+      `Conteúdo recusado: coluna com ${wordCount} palavras; mínimo obrigatório é ${MIN_ARTICLE_WORDS}`,
+    )
+  }
+  if (sections < MIN_ARTICLE_SECTIONS) {
+    throw new Error(
+      `Conteúdo recusado: coluna com ${sections} subtítulos; mínimo obrigatório é ${MIN_ARTICLE_SECTIONS}`,
+    )
+  }
+  if (paragraphs < MIN_ARTICLE_PARAGRAPHS) {
+    throw new Error(
+      `Conteúdo recusado: coluna com ${paragraphs} parágrafos substantivos; mínimo obrigatório é ${MIN_ARTICLE_PARAGRAPHS}`,
+    )
+  }
+  if (String(article.title || '').trim().length < 20) {
+    throw new Error('Conteúdo recusado: título editorial ausente ou curto demais')
+  }
+  if (String(article.excerpt || '').trim().length < 40) {
+    throw new Error('Conteúdo recusado: excerpt ausente ou curto demais')
+  }
+}
+
 function parseRssItems(xml) {
   const items = []
   const blocks = xml.match(/<item[\s\S]*?<\/item>/gi) || []
@@ -294,36 +337,9 @@ async function collectCandidates(index) {
 
 async function generateArticle(item) {
   if (!XAI_API_KEY) {
-    // fallback sem API: coluna curta
-    log('WARN: XAI_API_KEY ausente: usando template sem LLM')
-    return {
-      title: item.title,
-      excerpt: `Coluna do Blog IA: o que a notícia “${item.title.slice(0, 80)}…” muda para quem lidera empresa no Brasil.`,
-      body: [
-        `Quando uma notícia de inteligência artificial aparece, o empresário costuma reagir em dois extremos: ignora ou compra a moda sem método. Esta coluna lê o fato com frieza e traduz em decisão de operação.`,
-        ``,
-        `## O que a notícia diz`,
-        `${item.title}.`,
-        ``,
-        `## Por que isso importa na operação`,
-        `IA gera valor quando encaixa em processo real: contrato, atendimento, vendas, backoffice, produto. Sem padrão, segurança e dono da rotina, a ferramenta vira slide ou risco. O ponto não é “usar IA”. É **onde** a IA reduz custo, tempo e erro.`,
-        ``,
-        `## O que eu olharia se fosse o dono da empresa`,
-        `- Qual tarefa repetitiva isso ataca?\n- Quem no time opera com método?\n- Que dado sensível entra no fluxo?\n- Como medir ganho em 30 dias?`,
-        ``,
-        `## Fechamento`,
-        `Acompanhe a fonte original. Se fizer sentido para o seu negócio, estruture uso com consultoria, treinamento ou desenvolvimento com IA. Na IAX LAB o foco é aplicação com método, não moda.`,
-      ].join('\n'),
-      sources: [
-        {
-          title: item.title,
-          url: item.url,
-          publisher: item.publisher || 'Fonte original',
-        },
-      ],
-      tags: ['IA', 'coluna', 'notícias', SLOT].filter(Boolean),
-      imagePrompt: `Wide cinematic horizontal cover 16:9 about artificial intelligence news: ${item.title}. Modern tech aesthetic, green neon accents, abstract neural network, no text, no logos, photorealistic editorial style.`,
-    }
+    throw new Error(
+      'XAI_API_KEY ausente: publicação cancelada para evitar coluna rasa. Configure a chave e tente novamente.',
+    )
   }
 
   const system = `Você é colunista especialista em inteligência artificial da IAX LAB (Brasil).
@@ -424,7 +440,7 @@ Retorne JSON:
     excerpt: String(parsed.excerpt || item.title).trim().slice(0, 240),
     body: String(parsed.body || '').trim(),
     sources,
-    tags: Array.isArray(parsed.tags) ? parsed.tags.map(String) : ['IA'],
+    tags: [...(Array.isArray(parsed.tags) ? parsed.tags.map(String) : ['IA']), SLOT].filter(Boolean),
     imagePrompt: String(
       parsed.imagePrompt ||
         `Horizontal 16:9 editorial AI news cover, abstract neural tech, green neon, no text: ${item.title}`,
@@ -599,6 +615,8 @@ async function main() {
   }
 
   const article = await generateArticle(item)
+  validateArticle(article)
+  log('coluna validada', `${countMarkdownWords(article.body)} palavras`)
   const baseSlug = slugify(article.title) || `ia-${item.fingerprint.slice(0, 8)}`
   let slug = baseSlug
   // avoid slug collision
@@ -649,7 +667,9 @@ async function main() {
   log('done')
 }
 
-main().catch((err) => {
-  console.error('[ai-blog] FATAL', err)
-  process.exit(1)
-})
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  main().catch((err) => {
+    console.error('[ai-blog] FATAL', err)
+    process.exit(1)
+  })
+}
